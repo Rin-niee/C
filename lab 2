@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 	sum2=0;
 	sum1+=mas[i][i];
 	sum1+=mas[i][(n-1)-i];
-	printf("ñóììà ãëàâíîé äèàãîíàëè ðàâíà:", %d, sum1);
-	printf("ñóììà ïîáî÷íîé äèàãîíàëè ðàâíà:", %d, sum2);
+	printf("", %d, sum1);
+	printf("", %d, sum2);
 	return 0;
 }
