@@ -3,7 +3,6 @@
  
 int main()
 {
-    int const n = 3;
     double mas[n][n];
     double sum1, sum2;
     
