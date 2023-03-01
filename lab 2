@@ -4,6 +4,7 @@
 int main()
 {
     double mas[3][3];
+    printf("%s/n", "Ââåäèòå çíà÷åíèÿ ÷åðåç ïðîáåë");
     double sum1, sum2;
     scanf("%d %d %d %d %d %d %d %d %d", &mas);
     sum1=mas[1][1]+mas[2][2]+mas[3][3];
