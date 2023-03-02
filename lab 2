@@ -4,12 +4,18 @@
 int main()
 {
     double mas[3][3];
-    printf("%s/n", "Ââåäèòå çíà÷åíèÿ ÷åðåç ïðîáåë");
+    printf("%s", "Ââåäèòå çíà÷åíèÿ ÷åðåç ïðîáåë:");
     double sum1, sum2;
-    scanf("%d %d %d %d %d %d %d %d %d", &mas);
+    for (int i = 0; i<3; i++)
+	{
+    for (int j = 0; j<3; j++)
+	{
+    printf("mas[%d][%d]=",i,j);
+    scanf("%d", &mas[i][j]);
+    }
+	}
     sum1=mas[1][1]+mas[2][2]+mas[3][3];
     sum2=mas[3][1]+mas[2][2]+mas[1][3];
     printf("%d/n %d/n", sum1, sum2);
     return 0;
     }
-    
