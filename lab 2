@@ -72,14 +72,12 @@ int main()
 	{
 	    for ( m = 0; m<n; m++)
 		{
+			sum2 =sum2+mas[k][n-1-m];
 			if(k==m)
 				sum1 = sum1+mas[k][m];
-				if (k>m)
-				sum2=sum2+mas[m][k];
 		}
 	}
     printf("%lf %lf", sum1, sum2);
     return 0;
 }
-
 //вариант для матрицы любого размера
