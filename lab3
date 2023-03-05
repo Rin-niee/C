@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+	int a;
+	printf("enter the string");
+	scanf("%80s", &a);
+	return 0;
+}
