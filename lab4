@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(int argc, char *argv[])
+{ double a,b,c;
+printf("enter 3 numbers:\n");
+scanf("%d", &a);
+scanf("%d", &b);
+scanf("%d", &c);
+int perimeter(double a, double b, double c)
+	{
+		double p;
+		p=a+b+c;
+		return p;
+	}
+int square(double a, double b, double c)
+{
+	double s,p;
+	p=(a+b+c)/2;
+	s=sqrt(p*(p-a)*(p-b)*(p-c));
+	return s;
+}
+	return 0;
+}
