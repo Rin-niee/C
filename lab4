@@ -8,26 +8,39 @@ printf("enter 3 numbers:\n");
 scanf("%d", &a);
 scanf("%d", &b);
 scanf("%d", &c);
-int perimeter(double a, double b, double c)
+double perimeter(double a, double b, double c)
 	{
 		double p;
 		p=a+b+c;
 		return p;
 	}
-int square(double a, double b, double c)
-{
-	double s,p;
-	p=(a+b+c)/2;
-	s=sqrt(p*(p-a)*(p-b)*(p-c));
-	return s;
-}
-switch(a,b,c)
+double square(double a, double b, double c)
 	{
-	case (a>b+c): e = perimeter(double a, double b, double c), f = perimeter(double a, double b, double c)
-	case (b>a+c):e = perimeter(double a, double b, double c), f = perimeter(double a, double b, double c)
-	case (c>b+a):e = perimeter(double a, double b, double c), f = perimeter(double a, double b, double c)
-	default: printf("does not satisfy the condition");
+		double s,p,j;
+		p=(a+b+c)/2;
+		j= (p*(p-a)*(p-b)*(p-c));
+		s=(sqrt(j));
+		return s;
 	}
-	printf("%d %d", e,f)
+if (a>b+c)
+	{
+		e = perimeter(a, b, c);
+		f = square(a, b, c);
+	}
+if (b>c+a)
+	{
+		e = perimeter(a, b, c);
+		f = square(a, b, c);
+	}
+if (c>b+a)
+	{
+		e = perimeter(a, b, c);
+		f = square(a, b, c);
+	}
+else
+	{
+		printf("does not satisfy the condition");
+	}
+printf("%d %d", e, f);
 	return 0;
-} 
+}
