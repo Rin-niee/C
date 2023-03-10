@@ -28,6 +28,6 @@ switch(a,b,c)
 	case (c>b+a):e = perimeter(double a, double b, double c), f = perimeter(double a, double b, double c)
 	default: printf("does not satisfy the condition");
 	}
-	return 0;
 	printf("%d %d", e,f)
+	return 0;
 } 
