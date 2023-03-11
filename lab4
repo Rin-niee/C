@@ -5,9 +5,9 @@
 int main(int argc, char *argv[])
 { double a,b,c,e,f;
 printf("enter 3 numbers:\n");
-scanf("%d", &a);
-scanf("%d", &b);
-scanf("%d", &c);
+scanf("%fl", &a);
+scanf("%fl", &b);
+scanf("%fl", &c);
 double perimeter(double a, double b, double c)
 	{
 		double p;
