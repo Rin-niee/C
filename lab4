@@ -5,9 +5,9 @@
 int main(int argc, char *argv[])
 { double a,b,c,e,f;
 printf("enter 3 numbers:\n");
-scanf("%fl", &a);
-scanf("%fl", &b);
-scanf("%fl", &c);
+scanf("%lf", &a);
+scanf("%lf", &b);
+scanf("%lf", &c);
 double perimeter(double a, double b, double c)
 	{
 		double p;
@@ -16,7 +16,7 @@ double perimeter(double a, double b, double c)
 	}
 double square(double a, double b, double c)
 	{
-		float p1, p2,s;
+		double p1, p2,s;
 		p1=(a+b+c);
 		p2=p1/2;
 		s=sqrt(p2*(p2-a)*(p2-b)*(p2-c));
@@ -26,7 +26,7 @@ if ((a<b+c) && (b<a+c) && (c<b+a))
 	{
 		e = perimeter(a, b, c);
 		f = square(a, b, c);
-		printf("%d %lf", e, f);
+		printf("%lf %lf", e, f);
 	}
 else
 	{
