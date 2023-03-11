@@ -34,12 +34,3 @@ else
 	}	
 	return 0;
 }
-		f = square(a, b, c);
-	}
-else
-	{
-		printf("does not satisfy the condition");
-	}
-printf("%d %d", e, f);
-	return 0;
-}
