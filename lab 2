@@ -55,7 +55,7 @@ int main()
 int main()
 {
     double sum1=0,sum2=0;
-	int i,j,k,m,n;
+	int i,j,n,o;
  	printf("Enter N:");
 	scanf("%d", &n);   
 	double mas[n][n];
@@ -69,16 +69,31 @@ int main()
 	    }
 	}
 	
-    for ( k = 0; k<n; k++)
+    for ( i = 0; i<n; i++)
 	{
-	    for ( m = 0; m<n; m++)
+	    for ( j = 0; j<n; j++)
 		{
-			sum2 =sum2+mas[k][n-1-m];
-			if(k==m)
-				sum1 = sum1+mas[k][m];
+			sum2 = sum2+mas[i][n-1-j];
+			if(i==j)
+				{
+				sum1 = sum1+mas[i][j];
+				}
 		}
 	}
-    printf("%lf %lf", sum1, sum2);
-    return 0;
+    printf("%lf\n %lf\n", sum1, sum2);
+double kv[n][n];
+for ( i = 0; i<n; i++)
+{
+	for ( j = 0; j<n; j++)
+		{
+			kv[i][j]=0;
+			for ( o = 0; o<n; o++)
+			{
+				kv[i][j]=kv[i][j]+mas[i][o]*mas[o][j];
+				printf("%lf\n", kv[i][j]);
+			}
+		}
+}
+return 0;
 }
 //вариант для матрицы любого размера
