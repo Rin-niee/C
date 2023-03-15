@@ -1,19 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <alloc.h>
+#include 'masss.h'
 
 int main() 
-{	int n,i,j;
+{	int n,i,j,f,x;
+	char k;
 	printf("Enter N: \n");
 	scanf(" %d", &n);
-	double a[n][n];
-	double b[n][n];
+	
+	double *a;
+	b=(double*)malloc(n*n*sizeof(double*));
 	printf("%s", "Enter the values separated by a space for mass a: \n");
 	for (i=0; i<n; i++)
 	{
 		for (j=0; j<n; j++)
 		{
 			printf("a[%d][%d]=",i,j);
-    		scanf("%d", &a[i][j]);
+    		scanf("%d", (a+i*n+j));
+		}
+	}
+	double *b;
+	b=(double*)malloc(n*n*sizeof(double*));
+	printf("%s", "Enter the values separated by a space for mass b: \n");
+	for (i=0; i<n; i++)
+	{
+		for (j=0; j<n; j++)
+		{
+			printf("a[%d][%d]=",i,j);
+    		scanf("%d", (b+i*n+j));
 		}
 	}
 	printf("%s", "Enter the values separated by a space for mass b: \n");
@@ -25,5 +40,21 @@ int main()
     		scanf("%d", &b[i][j]);
 		}
 	}
-	return 0;
+	printf("enter arithmetic sign: \n");
+	scanf(" %c", &f)
+	if (f = '+')
+	{
+		x = sum(double *a, double *b)
+	}
+	if (f = '-')
+	{
+		x = diff(double *a, double *b)
+	}
+	if (f = '-')
+	{
+		x = prod(double *a, double *b)
+	}
+	printf(" %lf", x)
+	free(a);
+	free(b);
 }
