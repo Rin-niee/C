@@ -17,3 +17,14 @@ double square(double a, double b, double c)
 		s=sqrt(p2*(p2-a)*(p2-b)*(p2-c));
 		return s;
 	}
+double us(double a, double b, double c)
+{
+	if ((a<b+c) && (b<a+c) && (c<b+a))
+	{
+	return True
+	}
+	else
+	{
+	return False
+	}
+}
