@@ -3,14 +3,14 @@
 int main(int argc, char *argv[])
 { double a,b,c,e,f;
 printf("enter 3 numbers:\n");
-scanf("%d", &a);
-scanf("%d", &b);
-scanf("%d", &c);
+scanf("%lf", &a);
+scanf("%lf", &b);
+scanf("%lf", &c);
 if ((a<b+c) && (b<a+c) && (c<b+a))
 	{
 		e = perimeter(a, b, c);
 		f = square(a, b, c);
-		printf("%d %lf", e, f);
+		printf("%lf %lf", e, f);
 	}
 else
 	{
