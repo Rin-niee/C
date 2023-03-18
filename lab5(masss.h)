@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <alloc.h>
 
-double sum(double *a, double *b)
+double sum(double *aa, double *bb)
 {
 	double s;
-	s = a[i]+b[i];
+	s = *aa+*bb;
 	return s;
 }
-double diff(double *a, double *b)
+double diff(double *aa, double *bb)
 {
 	double d;
-	d = a[i]-b[i];
+	d = *aa-*bb;
 	return d;
 }
-double prod(double *a, double *b)
+double prod(double *aa, double *bb)
 {
 	double p;
-	p = a[i]*b[i];
+	p = *aa*(*bb;
 	return p;
 }
