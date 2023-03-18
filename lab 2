@@ -90,9 +90,16 @@ for ( i = 0; i<n; i++)
 			for ( o = 0; o<n; o++)
 			{
 				kv[i][j]=kv[i][j]+mas[i][o]*mas[o][j];
-				printf("%lf\n", kv[i][j]);
 			}
 		}
+}
+for ( i = 0; i<n; i++)
+{
+	for ( j = 0; j<n; j++)
+		{
+			printf("%lf", kv[i][j]);
+		}
+	printf("\n");
 }
 return 0;
 }
