@@ -6,15 +6,9 @@ printf("enter 3 numbers:\n");
 scanf("%lf", &a);
 scanf("%lf", &b);
 scanf("%lf", &c);
-if ((a<b+c) && (b<a+c) && (c<b+a))
-	{
-		e = perimeter(a, b, c);
-		f = square(a, b, c);
-		printf("%lf %lf", e, f);
-	}
-else
-	{
-		printf("does not satisfy the condition");
-	}	
-	return 0;
-}
+e = perimeter(a, b, c);
+f = square(a, b, c);
+printf("Perimeter== %lf\n square = %lf\n", e, f);
+printf("does not satisfy the condition");
+return 0;
+
