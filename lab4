@@ -1,13 +1,14 @@
 #include "mathfunct.h"
 
 int main(int argc, char *argv[])
-{ double a,b,c,e,f;
+{ double a,b,c,e,f,k=1;
 printf("enter 3 numbers:\n");
 scanf("%lf", &a);
 scanf("%lf", &b);
 scanf("%lf", &c);
-e = perimeter(a, b, c);
-f = square(a, b, c);
+if k==us(a,b,c):
+  e = perimeter(a, b, c);
+  f = square(a, b, c);
 printf("Perimeter== %lf\n square = %lf\n", e, f);
 printf("does not satisfy the condition");
 return 0;
