@@ -44,15 +44,15 @@ int main()
 	scanf(" %c", &f);
 	if (f = '+')
 	{
-		x = sum (*aa, *bb);
+		x = sum (*aa, *bb, n);
 	}
 	if (f = '-')
 	{
-		x = diff(*aa, *bb);
+		x = diff(*aa, *bb, n);
 	}
 	if (f = '-')
 	{
-		x = prod(*aa, *bb);
+		x = prod(*aa, *bb, n);
 	}
 	printf(" %lf", x);
 	freea(a);
