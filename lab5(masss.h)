@@ -2,10 +2,16 @@
 #include <stdlib.h>
 #include <math.h>
 
-double sum(double *aa, double *bb)
+double sum(double *aa, double *bb, int n)
 {
-	double s;
-	s = *aa+*bb;
+	double s,i,j;
+	for(i=0; i<n; i++)
+	{
+		for(j=0, i<n, j++)
+		{
+			s = s+ aa[i][j]+bb[i][j];
+		}
+	}
 	return s;
 }
 double diff(double *aa, double *bb)
