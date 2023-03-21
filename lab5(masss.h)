@@ -14,21 +14,27 @@ double sum(double *aa, double *bb, int n)
 	}
 	return s;
 }
-double diff(double *aa, double *bb)
+double diff(double *aa, double *bb, int n)
 {
 	double d,i,j;
 	for(i=0; i<n; i++)
 	{
 		for(j=0, i<n, j++)
 		{
-			s = s+ (aa[i][j]-bb[i][j]);
+			d = d+ (aa[i][j]-bb[i][j]);
 		}
 	}
 	return d;
 }
-double prod(double *aa, double *bb)
+double prod(double *aa, double *bb, int n)
 {
-	double p;
-	p = *aa*(*bb;
+	double p,i,j;
+	for(i=0; i<n; i++)
+	{
+		for(j=0, i<n, j++)
+		{
+			p = p+ (aa[i][j*-bb[i][j]);
+		}
+	}
 	return p;
 }
