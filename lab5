@@ -16,7 +16,7 @@ int main()
 	{
 		for (j=0; j<n; j++)
 		{
-			printf("a[%d][%d]=",i,j);
+		printf("a[%d][%d]=",i,j);
     		scanf("%d", (aa+i*n+j));
 		}
 	}
@@ -28,7 +28,7 @@ int main()
 		for (j=0; j<n; j++)
 		{
 			printf("a[%d][%d]=",i,j);
-    		scanf("%d", (b+i*n+j));
+			scanf("%d", (b+i*n+j));
 		}
 	}
 	printf("%s", "Enter the values separated by a space for mass b: \n");
@@ -36,8 +36,8 @@ int main()
 	{
 		for (j=0; j<n; j++)
 		{
-		printf("b[%d][%d]=",i,j);
-    		scanf("%d", &b);
+			printf("b[%d][%d]=",i,j);
+			scanf("%d", &b);
 		}
 	}
 	printf("enter arithmetic sign: \n");
