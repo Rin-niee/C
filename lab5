@@ -36,7 +36,7 @@ int main()
 	{
 		for (j=0; j<n; j++)
 		{
-			printf("b[%d][%d]=",i,j);
+		printf("b[%d][%d]=",i,j);
     		scanf("%d", &b);
 		}
 	}
@@ -54,7 +54,7 @@ int main()
 	{
 		x = prod(*aa, *bb, n);
 	}
-	printf(" %lf", x);
-	freea(a);
+	printf("%lf", x);
+	free(a);
 	free(bb);
 }
