@@ -2,39 +2,42 @@
 #include <stdlib.h>
 #include <math.h>
 
-double sum(double *aa, double *bb, int n)
+double sum(double **aa, double **bb, int n)
 {
 	double s,i,j;
-	for(i=0; i<n; i++)
+	s=0;
+	for (i=0; i<n; i++)
 	{
-		for(j=0, i<n, j++)
-		{
-			s = s+ (aa[i][j]+bb[i][j]);
-		}
+	for (j=0; j<n; j++)
+	{
+		s = s+(**aa[i][j]+**bb[i][j]);
+	}
 	}
 	return s;
 }
-double diff(double *aa, double *bb, int n)
+double diff(double **aa, double **bb, int n)
 {
-	double d,i,j;
-	for(i=0; i<n; i++)
+	double d, i, j;
+	d=0;
+	for (i=0; i<n; i++)
 	{
-		for(j=0, i<n, j++)
-		{
-			d = d+ (aa[i][j]-bb[i][j]);
-		}
+	for (j=0; j<n; j++)
+	{
+		d = d+(**aa[i][j]-**bb[i][j]);
+	}
 	}
 	return d;
 }
-double prod(double *aa, double *bb, int n)
+double prod(double **aa, double **bb, int n)
 {
-	double p,i,j;
-	for(i=0; i<n; i++)
+	double p, i, j;
+	p=0;
+	for (i=0; i<n; i++)
 	{
-		for(j=0, i<n, j++)
-		{
-			p = p+ (aa[i][j*-bb[i][j]);
-		}
+	for (j=0; j<n; j++)
+	{
+		p = p+ (**aa*(**bb));
+	}
 	}
 	return p;
 }
