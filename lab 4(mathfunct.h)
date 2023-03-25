@@ -1,30 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include "mathfunct.h"
 
-double a,b,c,e,f;
-double perimeter(double a, double b, double c)
-	{
-		double p;
-		p=a+b+c;
-		return p;
-	}
-double square(double a, double b, double c)
-	{
-		float p1, p2,s;
-		p1=(a+b+c);
-		p2=p1/2;
-		s=sqrt(p2*(p2-a)*(p2-b)*(p2-c));
-		return s;
-	}
-bool us(double a, double b, double c)
-{
-	if ((a<b+c) && (b<a+c) && (c<b+a))
-	{
-	return True
-	}
+int main(int argc, char *argv[])
+{ double a,b,c,e,f, k=1;
+printf("enter 3 numbers:\n");
+scanf("%lf", &a);
+scanf("%lf", &b);
+scanf("%lf", &c);
+	if (us(a,b,c)==k)
+		{
+	  	e = perimeter(a, b, c);
+	  	f = square(a, b, c);
+		printf("Perimeter== %lf\n Square = %lf\n", e, f);
+	  	}
+	
 	else
 	{
-	return False
+		printf("does not satisfy the condition");
 	}
+return 0;
 }
