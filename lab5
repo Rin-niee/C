@@ -1,58 +1,59 @@
 #include "masss.h"
+#include <malloc.h>
 
 int main() 
-{	int n,i,j,f,x;
-	double a,b;
+{	int n,f,x,m,i,j;
 	char k;
 	printf("Enter N: \n");
 	scanf("%d", &n);
+	printf("Enter M: \n");
+	scanf("%d", &m);
 	
-	double *aa;
-	a=(double*)malloc(n*n*sizeof(double*));
+	double **aa;
+	aa=(double**)malloc(n*sizeof(double*));
+	for (i=0;i<m;i++)
+	{
+		aa[i]=(double*)malloc(m*sizeof(double));
+	}
 	printf("%s", "Enter the values separated by a space for mass a: \n");
 	for (i=0; i<n; i++)
 	{
 		for (j=0; j<n; j++)
 		{
 		printf("a[%d][%d]=",i,j);
-    		scanf("%d", (aa+i*n+j));
+    	scanf("%lf", &(*aa));
 		}
 	}
-	double *bb;
-	b=(double*)malloc(n*n*sizeof(double*));
+	double **bb;
+	bb=(double**)malloc(n*sizeof(double*));
+	for (i=0;i<m;i++)
+	{
+		aa[i]=(double*)malloc(m*sizeof(double));
+	}
 	printf("%s", "Enter the values separated by a space for mass b: \n");
 	for (i=0; i<n; i++)
 	{
 		for (j=0; j<n; j++)
 		{
 			printf("a[%d][%d]=",i,j);
-			scanf("%d", (b+i*n+j));
-		}
-	}
-	printf("%s", "Enter the values separated by a space for mass b: \n");
-	for (i=0; i<n; i++)
-	{
-		for (j=0; j<n; j++)
-		{
-			printf("b[%d][%d]=",i,j);
-			scanf("%d", &b);
+			scanf("%lf", &(*bb));
 		}
 	}
 	printf("enter arithmetic sign: \n");
 	scanf(" %c", &f);
 	if (f = '+')
 	{
-		x = sum (*aa, *bb, n);
+		x = sum(**aa, **bb);
 	}
 	if (f = '-')
 	{
-		x = diff(*aa, *bb, n);
+		x = diff(**aa, **bb);
 	}
 	if (f = '-')
 	{
-		x = prod(*aa, *bb, n);
+		x = prod(**aa, **bb);
 	}
 	printf("%lf", x);
-	free(a);
+	free(aa);
 	free(bb);
 }
