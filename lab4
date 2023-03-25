@@ -2,7 +2,8 @@
 
 int main(int argc, char *argv[])
 { double a,b,c,e,f, 
-bool k=True;
+bool k;
+k=True;
 printf("enter 3 numbers:\n");
 scanf("%lf", &a);
 scanf("%lf", &b);
