@@ -5,6 +5,12 @@ int main()
 	char f;
 	printf("Enter N and M: \n");
 	scanf("%d %d", &n, &m);
+	double **x;
+	x=(double**)malloc(n*sizeof(double*));
+	for (i=0;i<m;i++)
+	{
+		x[i]=(double*)malloc(m*sizeof(double));
+	}
 	
 	double **aa;
 	aa=(double**)malloc(n*sizeof(double*));
@@ -40,15 +46,15 @@ int main()
 	scanf(" %c", &f);
 	if (f == '+')
 	{
-		double** x = sum(aa, bb, n,m);
+		x = sum(aa, bb, n,m);
 	}
 	if (f == '-')
 	{
-		double** x = diff(aa, bb, n,m);
+		x = diff(aa, bb, n,m);
 	}
 	if (f == '-')
 	{
-		double** x = prod(aa, bb, n,m);
+		x = prod(aa, bb, n,m);
 	}
 	free(aa);
 	free(bb);
