@@ -26,7 +26,7 @@ double** diff(double **aa, double **bb, int n, int m)
 {
 	int i,j;
 	double **s;
-	s=(double**)malloc(n*sizeof(double*));
+	bb=(double**)malloc(n*sizeof(double*));
 	for (i=0;i<m;i++)
 	{
 		s[i]=(double*)malloc(m*sizeof(double));
@@ -45,7 +45,7 @@ double** prod(double **aa, double **bb, int n, int m)
 {
 	int i,j,o;
 	double **s;
-	s=(double**)malloc(n*sizeof(double*));
+	bb=(double**)malloc(n*sizeof(double*));
 	for (i=0;i<m;i++)
 	{
 		s[i]=(double*)malloc(m*sizeof(double));
@@ -63,4 +63,3 @@ double** prod(double **aa, double **bb, int n, int m)
 	}
 return s;
 }
-
