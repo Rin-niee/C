@@ -1,1 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+int main(int argc, char *argv[]) 
+	{
+		typedef struct
+			{
+				
+			} humen;
+		return 0;
+	}
