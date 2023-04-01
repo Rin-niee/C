@@ -56,7 +56,16 @@ int main()
 	{
 		x = prod(aa, bb, n,m);
 	}
+	for(i=0; i<n; i++)
+	{
+		for(j=0; j<m; i++) 
+		{
+			printf("%d ", *(x+i*m+j));
+		}
+		printf("\n");
+	}
 	free(aa);
 	free(bb);
+	free(x);
 return 0;
 }
