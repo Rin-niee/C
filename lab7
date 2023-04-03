@@ -12,14 +12,5 @@ int main(int argc, char *argv[])
 	int m, n, i, j;
 	humen mass1[n][m];
 	humen mass2[n][m];
-	printf("%s", "Enter the values separated by a space for mass1: \n");
-	for (i=0; i<n; i++)
-	{
-		for (j=0; j<m; j++)
-			{
-				printf("mass1[%d][%d]=",i,j);
-				scanf(&mass1);
-			}
-	}
 		return 0;
 	}
