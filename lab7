@@ -10,7 +10,8 @@ int main(int argc, char *argv[])
 			char lastname[50];
 			int birthyear;	
 		} humen;
-		human mass1[4], mass1sort[4];
+		humen mass1[4], mass1sort[4];
+		int i;
 		for (i=0; i<4; i++)
 		{
 			printf("Enter information about humans:");
@@ -23,10 +24,24 @@ int main(int argc, char *argv[])
 			
 		}
 		void sortbirthyear(humen mass1sort[4]);
-		int i, j;
-		for (i=0; i<4-1, i++)
+		int j;
+		humen h;
+		for (j=0; j<4-1; j++)
 		{
-			for j
+			if (mass1[j].birthyear> mass1[j+1].birthyear)
+				{
+					h = mass1[j];
+					mass1[j]=mass1[j+1];
+					mass1[j+1]=h;
+				}
+		}
+		memcpy(mass1sort[4], mass1[4], sizeof(humen)*4);
+		sortbirthyear(humen mass1sort[4]);
+		for (i=0; i<4; i++)
+		{
+			printf("Name: %s/n", mass1sort[i].name);
+			printf("Last Name: %s/n", mass1sort[i].lastname);
+			printf("Birth Year: %d/n", mass1sort[i].birthyear);
 		}
 		return 0;
 	}
