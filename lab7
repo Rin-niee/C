@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int main(int argc, char *argv[]) 
 	{
 		typedef struct
@@ -6,7 +10,7 @@ int main(int argc, char *argv[])
 			char lastname[50];
 			int birthyear;	
 		} humen;
-		human mass1[], mass1sort[];
+		human mass1[4], mass1sort[4];
 		for (i=0; i<4; i++)
 		{
 			printf("Enter information about humans:");
@@ -18,6 +22,11 @@ int main(int argc, char *argv[])
 			scanf("%d", mass1[i].birthyear);
 			
 		}
-		void sortbirthyear()
+		void sortbirthyear(humen mass1sort[4]);
+		int i, j;
+		for (i=0; i<4-1, i++)
+		{
+			for j
+		}
 		return 0;
 	}
