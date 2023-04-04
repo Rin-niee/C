@@ -14,14 +14,32 @@ int main(int argc, char *argv[])
 		int i;
 		for (i=0; i<4; i++)
 		{
-			printf("Enter information about humans:", i+1);
+			printf("Enter information about humans:");
 			printf("Name: ");
 			scanf("%s", mass1[i].name);
 			printf("Last Name: ");
 			scanf("%s", mass1[i].lastname);
 			printf("Birth Year: ");
 			scanf("%d", mass1[i].birthyear);
-			
 		}
+		void sortarray(humen array[], int n)
+		{	int j;
+			for (i=0; i<n; i++)
+			{
+				for (j=0; j<n-i-1; i++)
+				{
+					if (mass1[j].birthyear> mass1[j+1].birthyear)
+					{
+						humen h;
+						h = mass1[j];
+						mass1[j]=mass1[j+1];
+						mass1[j+1]=h;
+					}
+				}
+			}
+		}
+		memcry(mass1sort, mass1, sizeof(humen)*4);
+		sortarray(mass1sort, 4);
+		
 		return 0;
 	}
