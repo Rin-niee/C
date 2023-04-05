@@ -3,7 +3,7 @@
 #include <math.h>
 #include <malloc.h>
 
-double** sum(double **aa, double **bb, int n, int m)
+double** sum(double** aa, double** bb, int n, int m)
 {
 	int i,j;
 	double **s;
@@ -22,7 +22,7 @@ double** sum(double **aa, double **bb, int n, int m)
 	}
 return s;
 }
-double** diff(double **aa, double **bb, int n, int m)
+double** diff(double** aa, double** bb, int n, int m)
 {
 	int i,j;
 	double **s;
@@ -41,7 +41,7 @@ double** diff(double **aa, double **bb, int n, int m)
 	}
 return s;
 }
-double** prod(double **aa, double **bb, int n, int m)
+double** prod(double** aa, double** bb, int n, int m)
 {
 	int i,j,o;
 	double **s;
