@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-		memcry(mass1sort, mass1, sizeof(humen)*4); #
+		memmove(mass1sort, mass1, sizeof(humen)*4); #
 		sortarray(mass1sort, 4);
 		printf("sorted array:");
 		for (i=0; i<4; i++)
