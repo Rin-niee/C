@@ -38,9 +38,15 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-		memcry(mass1sort, mass1, sizeof(humen)*4);
+		memcry(mass1sort, mass1, sizeof(humen)*4); #
 		sortarray(mass1sort, 4);
-		
+		printf("sorted array:");
+		for (i=0; i<4; i++)
+		{
+			printf("Name: %s\n", mass1sort[i].name);
+			printf("Last Name: %s\n", mass1sort[i].lastname);
+			printf("Birth Year: %d\n", mass1sort[i].birthyear);
+		}
 		return 0;
 	}
-//добавить вывод второго словаря
+
