@@ -4,10 +4,7 @@ typedef struct
 		char lastname[50];
 		int birthyear;
 	} humen;
-	humen** sortarray(humen mass1[n], int n)
-	humen h;
-	if mass1[n]
-	#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "funct.h"
@@ -17,15 +14,15 @@ int main()
 	printf("enter the required number of people:\n");
 	scanf("%d", &n);
 	humen mass1[n], massort[n];
+	printf("Enter details\n");
 	for(i=0; i<n; i++)
 	{
-		printf("Enter details\n");
 		printf("Enter name:");
 		scanf("%s", mass1[i].name);
 		printf("Enter last name:");
 		scanf("%s", mass1[i].lastname);
 		printf("Enter birthyear:");
-		scanf("%d", mass1[i].birthyear);
+		scanf("%d", &mass1[i].birthyear);
 		fflush(stdin);
 	}
 	return 0;
