@@ -1,30 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-typedef struct
-	{
-		char name[50];
-		char lastname[50];
-		int birthyear;
-	} humen;
-
-humen sort(humen mass1[n], int n)
-{int i, j;
-humen h;
-	for(i=0; i<n; i++)
-	{
-	for(j=0; j<n; j++)
-	{
-		if (mass1[j].birthyear< mass1[j+1].birthyear)
-		{
-			h = mass1[j];
-			mass1[j]=mass[j+1];
-			mass[j+1]=h;
-		}
-	}	
-	}
-}
+#include "kus.h"
 
 int main() 
 	{ int i, j, n;
@@ -42,15 +16,14 @@ int main()
 		scanf("%d", &mass1[i].birthyear);
 		fflush(stdin);
 	}
-	massort = sort(mass1[n], n);
+	memmove(massort, mass1, sizeof(humen)*n);
+	sorting(massort, n);
 	for (i=0; i<n; i++)
 	{
 		printf("information:/n");
 		printf("Name:", massort[i].name);
 		printf("Last name", massort[i].lastname);
-		print("Birth year", massort[i].birthyear)
+		print("Birth year", massort[i].birthyear);
 	}
 	return 0;
 	}
-	
-  
