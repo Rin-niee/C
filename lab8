@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstdbool.h>
+
+typedef struct
+{
+	char name[60];
+	char lastname[60];
+	int birthyear;
+	bool gender;
+	int height; 
+} humen;
+
+int main(int argc, char *argv[]) 
+{
+	int i, n;
+	humen mass[n];
+	FILE* f;
+	f = fopen("text1.txt", w);
+	printf("Enter number of people:\n");
+	scanf("%d", &n);
+	for (i=0; i<n, i++)
+	{
+		printf("Enter name:\n");
+		scanf("%s", mass[i].name);
+		printf("Enter last name:\n");
+		scanf("%s", mass[i].lastname);
+		printf("Enter birth year:\n");
+		scanf("%d", mass[i].birthyear);
+		printf("Enter name:\n");
+		scanf("%b", mass[i].gender);
+		printf("Enter name:\n");
+		scanf("%b", mass[i].gender);
+		printf("Enter height:\n");
+		scanf("%d", mass[i].height);
+	}
+	
+	
+}
