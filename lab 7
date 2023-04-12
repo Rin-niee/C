@@ -1,4 +1,4 @@
-#include "kus.h"
+#include "nya.h"
 
 int main() 
 	{ int i, j, n;
@@ -20,10 +20,11 @@ int main()
 	sorting(massort, n);
 	for (i=0; i<n; i++)
 	{
-		printf("information:/n");
-		printf("Name:", massort[i].name);
-		printf("Last name", massort[i].lastname);
-		print("Birth year", massort[i].birthyear);
+		printf("information:\n");
+		printf("Name: %s\n", massort[i].name);
+		printf("Last name: %s\n", massort[i].lastname);
+		printf("Birth year: %d\n", massort[i].birthyear);
+		printf("\n");
 	}
 	return 0;
 	}
