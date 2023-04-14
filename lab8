@@ -1,100 +1,36 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct
-{
-	char name[60];
-	char lastname[60];
-	int birthyear;
-	char gender;
-	float height; 
-} humen;
- void (humen array[], int n, char m[1000])
- {
- 	humen h;
- 	int i, j, res;
- 	int res = 0;
- 	for (i=0; i<n; i++)
- 	{
- 		for (j=0; j<n; j++)
-	 	{
-	 		if (m = "Name")
-	 		{
-	 			if (array[j].name< array[j+1].name)
-				{
-					h = array[j];
-					array[j]=array[j+1];
-					array[j+1]=h;
-				}
-			}
-			if (m = "Last name")
-	 		{
-	 			if (array[j].lastname< array[j+1].lastname)
-				{
-					h = array[j];
-					array[j]=array[j+1];
-					array[j+1]=h;
-				}
-			}
-			if (m = "year")
-	 		{
-	 			if (array[j].birthyear< array[j+1].birthyear)
-				{
-					h = array[j];
-					array[j]=array[j+1];
-					array[j+1]=h;
-				}
-			if (m = "gender")
-	 		{
-	 			if (array[j].gender< array[j+1].gender)
-				{
-					h = array[j];
-					array[j]=array[j+1];
-					array[j+1]=h;
-				}
-			}
-			if (m = "height")
-	 		{
-	 			if (array[j].height<array[j+1].height)
-				{
-					h = array[j];
-					array[j]=array[j+1];
-					array[j+1]=h;
-				}
-			}
-		}
-	}
- }
+#include "8lab.h"
 
 int main(int argc, char *argv[]) 
 {
 	int i, n;
-	char m[100];
-	humen mass[n], mass1[n];
+	humens hu;
+	char c[4][16]= {"name", "lastname", "birthyear", "gender", "height"};
+	char a[16];
 	FILE* f;
-	f = fopen("text1.txt", "w");
-	printf("Enter number of people:\n");
-	scanf("%d", &n);
-	for (i=0; i<n; i++)
+	f = fopen("text1.txt", "r");
+	if (f == NULL)
 	{
-		printf("Enter name:\n");
-		scanf("%s", mass[i].name);
-		printf("Enter last name:\n");
-		scanf("%s", mass[i].lastname);
-		printf("Enter birth year:\n");
-		scanf("%d", mass[i].birthyear);
-		printf("Enter name:\n");
-		printf("Enter gender:\n");
-		scanf("%s", mass[i].gender);
-		printf("Enter height:\n");
-		scanf("%d", mass[i].height);
+		printf("ERROR!";)
 	}
-	printf("enter the item to sort:\n");
-	scanf("%s ", m)
-	
-	for (i=0; i<n; i++)
+	else
 	{
-		fpintf(f, "%s %s %d %s %fl\n", mass[i].name, mass[i].lastname, mass[i].birthyear, mass[i].gender, mass[i].height);
+		fscanf(f, "%d", &n);
+		hu= (humen*)malloc(n*sizeof(humen));
+		for (i = 0; i<n; i++)
+		{
+			fscanf("%s %s %d %c %f", humen[i]->name, humen[i]->lastname, &humen[i]->birthyear, &humen[i]->gender, &humen[i]->height);
+		}
+		fclose(file);
+		printf("sort for(name, lastname, birthyear, gender, height, multi):\n");
+		scanf("%s ", &a);
+		if (strcmp(a, "multy")==0)
+		{
+			for (i =0; i<4; i++)
+			{
+				printf("Sort %s:\n", a[i]);
+				sortarray(hu, n, a[16]);
+			}
+		}
 	}
-	
+return 0;
 }
