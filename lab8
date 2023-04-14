@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[]) 
 {
-	int i, n;
+	int i,j, n=1000;
 	humen hu[1000];
 	char a[16];
 	FILE* f;
@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		fscanf(f, "%d", &n);
 		for (i = 0; i<n; i++)
 		{
 			fscanf(f, "%s %s %d %c %f", hu[i].name, hu[i].lastname, &hu[i].birthyear, &hu[i].gender, &hu[i].height);
@@ -26,6 +25,10 @@ int main(int argc, char *argv[])
 			printf("Sort %s:\n", a[i]);
 			sortarray(hu, n, a[16]);
 			}
+		for (i=0; i<1000; i++)
+		{
+			printf("%s %s %d %c %f\n", hu[i].name, hu[i].lastname, &hu[i].birthyear, &hu[i].gender, &hu[i].height);
+		}
 		}
 	return 0;	
 }
