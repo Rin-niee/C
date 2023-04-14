@@ -3,14 +3,14 @@
 
 typedef struct
 {
-	char name[60];
 	char lastname[60];
+	char name[60];
 	int birthyear;
-	char gender;
+	char gender[60];
 	float height; 
 } humen;
 
- void sortarray(humen array[], int n, char a[16])
+void sortarray(humen array[], int n, char a[])
  {
  	humen h;
  	int i, j, c;
@@ -21,23 +21,23 @@ typedef struct
 	 	{
 	 		if (strcmp(a, "name")==0)
 	 		{
-	 			c= strcmp(humen[i].name, humen[j].name);
+	 			c= strcmp(array[i].name, array[j].name);
 			}
 			if (strcmp(a, "lastname")==0)
 	 		{
-	 			c= strcmp(humen[i].lastname, humen[j].lastname);
+	 			c= strcmp(array[i].lastname, array[j].lastname);
 			}
 			if (strcmp(a, "year")==0)
 	 		{
-	 			c = humen[i].birthyear- humen[j].birthyear;
+	 			c = array[i].birthyear- array[j].birthyear;
 			}
 			if (strcmp(a, "gender")==0)
 	 		{
-	 			c = humen[i].gender- humen[j].gender;
+	 			c= strcmp(array[i].gender, array[j].gender);
 			}
 			if (strcmp(a, "height")==0)
 	 		{
-	 			c = humen[i].height - humen[j].height;
+	 			c = array[i].height - array[j].height;
 			}
 			if (c>0)
 			{
