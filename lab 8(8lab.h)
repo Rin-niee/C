@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+	char name[60];
+	char lastname[60];
+	int birthyear;
+	char gender;
+	float height; 
+} humen;
+
+ void sortarray(humen array[], int n, char a[16])
+ {
+ 	humen h;
+ 	int i, j, c;
+ 	c=0;
+ 	for (i=0; i<n; i++)
+ 	{
+ 		for (j=0; j<n; j++)
+	 	{
+	 		if (strcmp(a, "name")==0)
+	 		{
+	 			c= strcmp(humen[i].name, humen[j].name);
+			}
+			if (strcmp(a, "lastname")==0)
+	 		{
+	 			c= strcmp(humen[i].lastname, humen[j].lastname);
+			}
+			if (strcmp(a, "year")==0)
+	 		{
+	 			c = humen[i].birthyear- humen[j].birthyear;
+			}
+			if (strcmp(a, "gender")==0)
+	 		{
+	 			c = humen[i].gender- humen[j].gender;
+			}
+			if (strcmp(a, "height")==0)
+	 		{
+	 			c = humen[i].height - humen[j].height;
+			}
+			if (c>0)
+			{
+				h = array[i];
+				array[i]=array[j];
+				array[j]=h;
+			}
+		}
+	}
+}
