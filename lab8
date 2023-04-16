@@ -1,10 +1,9 @@
-#include "8lab.h"
+ #include "8lab.h"
 
 int main(int argc, char *argv[]) 
-{
-	int i,j, n=1000;
-	humen hu[1000];
-	char a[16];
+{	char a[100];
+	int i,j,n;
+	human* humens;
 	FILE* f;
 	f = fopen("text1.txt", "r");
 	if (f == NULL)
@@ -12,23 +11,21 @@ int main(int argc, char *argv[])
 		printf("ERROR!");
 	}
 	else
-	{
+	{ 	fscanf(f, "%d", &n);
+		human* humens = (human*)malloc(n*sizeof(human));
 		for (i = 0; i<n; i++)
 		{
-			fscanf(f, "%s %s %d %c %f", hu[i].name, hu[i].lastname, &hu[i].birthyear, &hu[i].gender, &hu[i].height);
+			fscanf(f, "%s %s %d %c %f", humens[i].name, humens[i].lastname, &humens[i].birthyear, &humens[i].gender, &humens[i].height);
 		}
 		fclose(f);
+		
 		printf("sort for(name, lastname, birthyear, gender, height):\n");
 		scanf("%s ", &a);
 		for (i =0; i<1000; i++)
 			{
 			printf("Sort %s:\n", a[i]);
-			sortarray(hu, n, a[16]);
+			sortarray(humens, n, a[100]);
 			}
-		for (i=0; i<1000; i++)
-		{
-			printf("%s %s %d %c %f\n", hu[i].name, hu[i].lastname, &hu[i].birthyear, &hu[i].gender, &hu[i].height);
-		}
-		}
 	return 0;	
+}
 }
