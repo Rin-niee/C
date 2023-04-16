@@ -8,11 +8,11 @@ typedef struct
 	int birthyear;
 	char gender[60];
 	float height; 
-} humen;
+} human;
 
-void sortarray(humen array[], int n, char a[])
+void sortarray(human* humens, int n, char a[])
  {
- 	humen h;
+ 	human h;
  	int i, j, c;
  	c=0;
  	for (i=0; i<n; i++)
@@ -21,29 +21,34 @@ void sortarray(humen array[], int n, char a[])
 	 	{
 	 		if (strcmp(a, "name")==0)
 	 		{
-	 			c= strcmp(array[i].name, array[j].name);
+	 			c= strcmp(humens[i].name, humens[j].name);
 			}
 			if (strcmp(a, "lastname")==0)
 	 		{
-	 			c= strcmp(array[i].lastname, array[j].lastname);
+	 			c= strcmp(humens[i].lastname, humens[j].lastname);
 			}
 			if (strcmp(a, "year")==0)
 	 		{
-	 			c = array[i].birthyear- array[j].birthyear;
+	 			c = humens[i].birthyear- humens[j].birthyear;
 			}
 			if (strcmp(a, "gender")==0)
 	 		{
-	 			c= strcmp(array[i].gender, array[j].gender);
+	 			c= strcmp(humens[i].gender, humens[j].gender);
 			}
 			if (strcmp(a, "height")==0)
 	 		{
-	 			c = array[i].height - array[j].height;
+	 			c = humens[i].height - humens[j].height;
 			}
 			if (c>0)
 			{
-				h = array[i];
-				array[i]=array[j];
-				array[j]=h;
+				h = humens[i];
+				humens[i]=humens[j];
+				humens[j]=h;
+			}
+			else if(c=0)
+			{
+				printf("Enter more detail");
+				scanf("%s ", a);
 			}
 		}
 	}
