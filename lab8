@@ -1,4 +1,4 @@
- #include "8lab.h"
+  #include "8lab.h"
 
 int main(int argc, char *argv[]) 
 {	char a[100];
@@ -15,17 +15,12 @@ int main(int argc, char *argv[])
 		human* humens = (human*)malloc(n*sizeof(human));
 		for (i = 0; i<n; i++)
 		{
-			fscanf(f, "%s %s %d %c %f", humens[i].name, humens[i].lastname, &humens[i].birthyear, &humens[i].gender, &humens[i].height);
+			fscanf(f, "%s %s %d %c %f\n", humens[i].lastname, humens[i].name, &humens[i].birthyear, &humens[i].gender, &humens[i].height);
 		}
 		fclose(f);
-		
 		printf("sort for(name, lastname, birthyear, gender, height):\n");
 		scanf("%s ", &a);
-		for (i =0; i<1000; i++)
-			{
-			printf("Sort %s:\n", a[i]);
-			sortarray(humens, n, a[100]);
-			}
-	return 0;	
-}
+		sortarray(humens, n, a[100]);
+	}
+	return 0;
 }
