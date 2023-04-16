@@ -19,37 +19,35 @@ void sortarray(human* humens, int n, char a[])
  	{
  		for (j=0; j<n; j++)
 	 	{
-	 		if (strcmp(a, "name")==0)
+	 		while (c>0)
 	 		{
-	 			c= strcmp(humens[i].name, humens[j].name);
+				 if (strcmp(a, "name")==0)
+		 		{
+		 			c= strcmp(humens[i].name, humens[j].name);
+				}
+				if (strcmp(a, "lastname")==0)
+		 		{
+		 			c= strcmp(humens[i].lastname, humens[j].lastname);
+				}
+				if (strcmp(a, "year")==0)
+		 		{
+		 			c = humens[i].birthyear- humens[j].birthyear;
+				}
+				if (strcmp(a, "gender")==0)
+		 		{
+		 			c= strcmp(humens[i].gender, humens[j].gender);
+				}
+				if (strcmp(a, "height")==0)
+		 		{
+		 			c = humens[i].height - humens[j].height;
+				}
 			}
-			if (strcmp(a, "lastname")==0)
-	 		{
-	 			c= strcmp(humens[i].lastname, humens[j].lastname);
-			}
-			if (strcmp(a, "year")==0)
-	 		{
-	 			c = humens[i].birthyear- humens[j].birthyear;
-			}
-			if (strcmp(a, "gender")==0)
-	 		{
-	 			c= strcmp(humens[i].gender, humens[j].gender);
-			}
-			if (strcmp(a, "height")==0)
-	 		{
-	 			c = humens[i].height - humens[j].height;
-			}
-			if (c>0)
-			{
-				h = humens[i];
-				humens[i]=humens[j];
-				humens[j]=h;
-			}
-			else if(c=0)
-			{
-				printf("Enter more detail");
-				scanf("%s ", a);
-			}
+				if (c>0)
+				{
+					h = humens[i];
+					humens[i]=humens[j];
+					humens[j]=h;
+				}
 		}
 	}
 }
