@@ -19,8 +19,6 @@ void sortarray(human* humens, int n, char a[])
  	{
  		for (j=0; j<n; j++)
 	 	{
-	 		while (c>0)
-	 		{
 				 if (strcmp(a, "name")==0)
 		 		{
 		 			c= strcmp(humens[i].name, humens[j].name);
