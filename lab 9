@@ -1,33 +1,11 @@
-#include <stdio.h> 
-#include <stdlib.h> 
-#include <string.h>
+#include "lab9c.h"
 
-double schet(char *prim) 
-{ 
-	char *token; 
-	double result = 0, num = 0;
-	res = strtok(expr, " "); 
-	while (token != NULL) 
-	{  
-		if (res[0] >= '0' && res[0] <= '9') 
-		{ 
-		num = atof(res); 
-		if (res == '+') 
-		{ 
-			result += num; 
-		} 
-		else if (res == '-') 
-		{ 
-			result -= num; 
-		} 
-		} 
-	return result; 
-}
 int main() 
-{ 	char prim[100];
+{ 	char *prim;
+	prim=((char*)malloc(strlen(prim) +1));
 	double result;
-	 printf("Enter an example:\n"); 
-	 scanf("%s ", &prim);
+	 printf("Enter an example: \n"); 
+	 scanf(" %s", &prim);
 	 result= schet(prim);  
 	 printf("Result: %lf\n", result); 
 	 return 0; 
