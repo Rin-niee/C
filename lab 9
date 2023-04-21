@@ -2,47 +2,33 @@
 #include <stdlib.h> 
 #include <string.h>
 
-int is_digit(char c) 
-{ 
-	return (c >= '0' && c <= '9'); 
-}
-double eval(char *expr) 
+double schet(char *prim) 
 { 
 	char *token; 
-	double result = 0, num = 0; 
-	char op = '+';
-	token = strtok(expr, " "); 
+	double result = 0, num = 0;
+	res = strtok(expr, " "); 
 	while (token != NULL) 
 	{  
-		if (is_digit(token[0])) 
+		if (res[0] >= '0' && res[0] <= '9') 
 		{ 
-		num = atof(token); 
-		if (op == '+') 
+		num = atof(res); 
+		if (res == '+') 
 		{ 
 			result += num; 
 		} 
-		else if (op == '-') 
+		else if (res == '-') 
 		{ 
 			result -= num; 
 		} 
 		} 
-		else 
-		{ 
-			op = token[0]; 
-		} 
-		token = strtok(NULL, " "); 
-	} 
 	return result; 
 }
 int main() 
-{ 	char expr[100];
-	 printf(": "); 
-	 fgets(expr, sizeof(expr), stdin);  
-	 if (expr[strlen(expr)-1] == '\n') 
-	 { 
-	 	expr[strlen(expr)-1] = '\0'; 
-	 }  
-	 double result = eval(expr);  
-	 printf(": %g\n", result); 
+{ 	char prim[100];
+	double result;
+	 printf("Enter an example:\n"); 
+	 scanf("%s ", &prim);
+	 result= schet(prim);  
+	 printf("Result: %lf\n", result); 
 	 return 0; 
 }
