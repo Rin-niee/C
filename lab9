@@ -1,12 +1,11 @@
 #include "lab9c.h"
 
 int main() 
-{ 	char *prim;
-	prim=((char*)malloc(strlen(prim) +1));
+{ 	char *prim[1000];
 	double result;
 	 printf("Enter an example: \n"); 
 	 scanf(" %s", &prim);
-	 result= schet(prim);  
+	 result = schet(*prim[1000]);  
 	 printf("Result: %lf\n", result); 
 	 return 0; 
 }
