@@ -2,28 +2,22 @@
 #include <stdlib.h> 
 #include <string.h>
 
-double schet(char *prim) 
+double schet(char *prim[1000]) 
 { 
-	char *res; 
-	double result, num, i;
+	char *res[1000]; 
+	double result, i;
 	result = 0;
-	num = 0;
-	res = strtok(prim, " "); 
+	res= strtok(prim[1000], " "); 
 	while (res != NULL) 
-	{  
-	for (i=0; i<strlen(prim); i++)
+	{ for (i=0; i<1000; i++)
 	{
-		if (res[i] >= '0' && res[i] <= '9') 
+		if (res[i] == '+') 
 		{ 
-		num = atof(res);
-		}
-		else if (res[i] == '+') 
-		{ 
-			result += num; 
+			result += res[i-1]+res[i+1]; 
 		} 
-		else if (res[i] == '-') 
+		else if (res == '-') 
 		{ 
-			result -= num; 
+			result -= res[i-1]+res[i+1]; 
 		} 
 	}
 	return result; 
