@@ -1,11 +1,34 @@
-#include "lab9c.h"
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <string.h>
+
+
+
 
 int main() 
-{ 	char *prim[1000];
-	double result;
-	 printf("Enter an example: \n"); 
-	 scanf(" %s", &prim);
-	 result = schet(*prim[1000]);  
-	 printf("Result: %lf\n", result); 
-	 return 0; 
+{ 	char prim[90];
+	char prob[10]=" ";
+	char *res;
+	int result, i;
+	printf("Enter an example: \n");
+	gets(prim);
+	res = strtok(prim,prob);
+	while (res!=NULL)
+	{
+		//printf("%s", res);
+		res = strtok(NULL, prob);
+	}
+    for (i=0; i<1000; i++)
+	{
+		if (res[i]=='+')
+		{
+			result+=(atoi(res[i-1])+atoi(res[i+1]));
+		}
+		if (res[i]=='-')
+		{
+			result-=(atoi(res[i-1])-atoi(res[i+1]));
+		}
+	}
+	printf("res = %d", result);
+	return 0; 
 }
