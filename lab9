@@ -15,19 +15,9 @@ int main()
 	res = strtok(prim,prob);
 	while (res!=NULL)
 	{
-		//printf("%s", res);
+		printf("%s", res);
 		res = strtok(NULL, prob);
-	}
-    for (i=0; i<1000; i++)
-	{
-		if (res[i]=='+')
-		{
-			result+=(atoi(res[i-1])+atoi(res[i+1]));
-		}
-		if (res[i]=='-')
-		{
-			result-=(atoi(res[i-1])-atoi(res[i+1]));
-		}
+		
 	}
 	printf("res = %d", result);
 	return 0; 
