@@ -1,24 +1,44 @@
-#include <stdio.h> 
-#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-
-
+int is_digit(char c) 
+{ 
+return isdigit(c)==1; 
+}
 
 int main() 
 { 	char prim[90];
 	char prob[10]=" ";
 	char *res;
-	int result, i;
+	int result, num, flag;
 	printf("Enter an example: \n");
 	gets(prim);
 	res = strtok(prim,prob);
 	while (res!=NULL)
-	{
-		printf("%s", res);
-		res = strtok(NULL, prob);
-		
-	}
-	printf("res = %d", result);
-	return 0; 
+	{	
+		flag =0;
+		if (strcmp(res, "+") == 0)
+		{
+			flag = 1;
+		}
+		else if (strcmp(res, "-") == 0)
+		{
+			flag = 2;
+		}
+		else if (isdigit(res[0]))
+        {
+            if (flag == 1)
+            {
+                result += atoi(res);
+            }
+            else if (flag == 2)
+            {
+                result -= atoi(res);
+            }
+        }
+        res = strtok(NULL, prob);
+    }
+    printf("Result is: %d", result);
+    return 0; 
 }
