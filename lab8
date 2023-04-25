@@ -1,26 +1,46 @@
-  #include "8lab.h"
+  #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(int argc, char *argv[]) 
-{	char a[100];
-	int i,j,n;
-	human* humens;
+typedef struct
+{
+	char lastname[60];
+	char name[60];
+	int birthyear;
+	char gender[60];
+	float height; 
+} human;
+
+int main() 
+{	human humens;
+	int i, j, h; 
+	char c[100]; //çàïèñü ñòðîêè, â êîòîðîé ïîñëå áóäåò ðàñïîëàãàòüñÿ îïðåäåëèòåëü;
+	char s[10000];
 	FILE* f;
-	f = fopen("text1.txt", "r");
-	if (f == NULL)
+	f = fopen("text.txt", "r");
+	if (f==NULL)
 	{
-		printf("ERROR!");
+		printf("Error");
 	}
 	else
-	{ 	fscanf(f, "%d", &n);
-		human* humens = (human*)malloc(n*sizeof(human));
-		for (i = 0; i<n; i++)
-		{
-			fscanf(f, "%s %s %d %c %f\n", humens[i].lastname, humens[i].name, &humens[i].birthyear, &humens[i].gender, &humens[i].height);
+	{
+		while(fgets(s, 10000, file)!=NULL)
+		{ 
+			for (i=0; i<10000; i++)
+				{
+					scanf("%s %s %d %s %f", humens[i].lastname, humens[i].name, humens[i].birthyear, humens[i].gender, humens[i].height);
+				}
+			}
 		}
-		fclose(f);
-		printf("sort for(name, lastname, birthyear, gender, height):\n");
-		scanf("%s ", &a);
-		sortarray(humens, n, a[100]);
+		printf("Enter parameter:\n");
+		gets(c);
+		for(i=0; i<10000; i++)
+		{
+			for(i=0; i<10000; i++)
+				{
+					
+				}
+		}
 	}
-	return 0;
+	return 0;	
 }
