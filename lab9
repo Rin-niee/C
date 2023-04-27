@@ -34,7 +34,7 @@ int main()
             }
             if (flag == 2)
             {
-                result -= atoi(res);
+                result -= atoi(res)
             }
         }
         res = strtok(NULL, prob);
