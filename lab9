@@ -11,7 +11,9 @@ int main()
 { 	char prim[90];
 	char prob[10]=" ";
 	char *res;
-	int result, num, flag;
+	int flag;
+	double result;
+	result=0;
 	printf("Enter an example: \n");
 	gets(prim);
 	res = strtok(prim,prob);
@@ -27,18 +29,18 @@ int main()
 			flag = 2;
 		}
 		else if (isdigit(res[0]))
-        {	result = atoi(res);
+        {
             if (flag == 1)
             {
-                result += atoi(res);
+                result += atof(res);
             }
             if (flag == 2)
             {
-                result -= atoi(res);
+                result -= atof(res);
             }
         }
         res = strtok(NULL, prob);
     }
-    printf("Result is: %d", result);
+    printf("Result is: %lf", result);
     return 0; 
 }
