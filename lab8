@@ -12,7 +12,8 @@ typedef struct
 } human;
 
 int main() 
-{	human humens, hus;
+{	human humens;
+	human hus;
 	int i, j, h; 
 	char c[100]; //çàïèñü ñòðîêè, â êîòîðîé ïîñëå áóäåò ðàñïîëàãàòüñÿ îïðåäåëèòåëü;
 	char s[10000];
@@ -30,6 +31,7 @@ int main()
 			for (i=0; i<10000; i++)
 				{
 					scanf("%s %s %d %s %f", humens[i].lastname, humens[i].name, &humens[i].birthyear, &humens[i].gender, &humens[i].height);
+					fflush(stdin);
 				}
 		}
 		printf("Enter parameter:\n");
@@ -40,23 +42,23 @@ int main()
 			{
 				for(i=0; i<10000; i++)
 					{
-						if (strcmp(a, "name")==0)
+						if (strcmp(c, "name")==0)
 				 		{
 				 			h= strcmp(humens[i].name, humens[j].name);
 						}
-						if (strcmp(a, "lastname")==0)
+						if (strcmp(c, "lastname")==0)
 				 		{
 				 			h= strcmp(humens[i].lastname, humens[j].lastname);
 						}
-						if (strcmp(a, "year")==0)
+						if (strcmp(c, "year")==0)
 				 		{
 				 			h = humens[i].birthyear- humens[j].birthyear;
 						}
-						if (strcmp(a, "gender")==0)
+						if (strcmp(c, "gender")==0)
 				 		{
 				 			h= strcmp(humens[i].gender, humens[j].gender);
 						}
-						if (strcmp(a, "height")==0)
+						if (strcmp(c, "height")==0)
 				 		{
 				 			h = humens[i].height - humens[j].height;
 						}
