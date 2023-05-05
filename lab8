@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct
 {
@@ -16,7 +17,8 @@ int main()
 	human hus;
 	int i, j, h; 
 	char c[100]; //çàïèñü ñòðîêè, â êîòîðîé ïîñëå áóäåò ðàñïîëàãàòüñÿ îïðåäåëèòåëü;
-	char s[10000];
+	char a[100];
+	char s[100];
 	h=0;
 	FILE* f;
 	f = fopen("text.txt", "r");
@@ -41,38 +43,168 @@ int main()
 			for(i=0; i<10000; i++)
 			{
 				for(i=0; i<10000; i++)
-					{
-						if (strcmp(c, "name")==0)
-				 		{
-				 			h= strcmp(humens[i].name, humens[j].name);
-						}
-						if (strcmp(c, "lastname")==0)
-				 		{
-				 			h= strcmp(humens[i].lastname, humens[j].lastname);
-						}
-						if (strcmp(c, "year")==0)
-				 		{
-				 			h = humens[i].birthyear- humens[j].birthyear;
-						}
-						if (strcmp(c, "gender")==0)
-				 		{
-				 			h= strcmp(humens[i].gender, humens[j].gender);
-						}
-						if (strcmp(c, "height")==0)
-				 		{
-				 			h = humens[i].height - humens[j].height;
-						}
-						if (h>0)
-						{
-							hus = humens[i];
-							humens[i]=humens[j];
-							humens[j]=hus;
-						}
-						else if (h=0)
-						{
-							printf("Enter parameter again:\n");
-						}
+				{
+					if (strcmp(c, "name")==0)
+				 	{
+				 		h= strcmp(humens[i].name, humens[j].name);
 					}
+					if (strcmp(c, "lastname")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(c, "year")==0)
+				 	{
+				 		h = humens[i].birthyear- humens[j].birthyear;
+					}
+					if (strcmp(c, "gender")==0)
+				 	{
+				 		h= strcmp(humens[i].gender, humens[j].gender);
+					}
+					if (strcmp(c, "height")==0)
+				 	{
+				 		h = humens[i].height - humens[j].height;
+					} 
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}
+					else if ((h=0) && (strcmp(c, "name")==0))
+					{
+						printf("Enter parameter again:\n");
+						gets(a);
+						if (strcmp(a, "lastname")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(a, "year")==0)
+				 	{
+				 		h = humens[i].birthyear- humens[j].birthyear;
+					}
+					if (strcmp(a, "gender")==0)
+				 	{
+				 		h= strcmp(humens[i].gender, humens[j].gender);
+					}
+					if (strcmp(a, "height")==0)
+				 	{
+				 		h = humens[i].height - humens[j].height;
+					}
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}
+					}
+					else if ((h=0) && (strcmp(c, "lastname")==0))
+					{
+						printf("Enter parameter again:\n");
+						gets(a);
+						if (strcmp(a, "name")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(a, "year")==0)
+				 	{
+				 		h = humens[i].birthyear- humens[j].birthyear;
+					}
+					if (strcmp(a, "gender")==0)
+				 	{
+				 		h= strcmp(humens[i].gender, humens[j].gender);
+					}
+					if (strcmp(a, "height")==0)
+				 	{
+				 		h = humens[i].height - humens[j].height;
+					}
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}	
+					}
+					else if ((h=0) && (strcmp(c, "year")==0))
+					{
+						printf("Enter parameter again:\n");
+						gets(a);
+						if (strcmp(c, "name")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(a, "lastname")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+					if (strcmp(a, "gender")==0)
+				 	{
+				 		h= strcmp(humens[i].gender, humens[j].gender);
+					}
+					if (strcmp(a, "height")==0)
+				 	{
+				 		h = humens[i].height - humens[j].height;
+					}
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}	
+				}
+				else if ((h=0) && (strcmp(c, "gender")==0))
+				{
+						printf("Enter parameter again:\n");
+						gets(a);
+						if (strcmp(a, "name")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(a, "lastname")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+					if (strcmp(a, "year")==0)
+				 	{
+				 		h = humens[i].birthyear- humens[j].birthyear;
+					}
+					if (strcmp(a, "height")==0)
+				 	{
+				 		h = humens[i].height - humens[j].height;
+					}
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}	
+				}
+				else if ((h=0) && (strcmp(c, "height")==0))
+				{
+						printf("Enter parameter again:\n");
+						gets(a);
+						if (strcmp(a, "name")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+						if (strcmp(a, "lastname")==0)
+				 	{
+				 		h= strcmp(humens[i].lastname, humens[j].lastname);
+					}
+					if (strcmp(a, "year")==0)
+				 	{
+				 		h = humens[i].birthyear- humens[j].birthyear;
+					}
+					if (strcmp(a, "gender")==0)
+				 	{
+				 		h= strcmp(humens[i].gender, humens[j].gender);
+					}
+					if (h>0)
+					{
+						hus = humens[i];
+						humens[i]=humens[j];
+						humens[j]=hus;
+					}	
+				}
 			}
 		}
 	}
