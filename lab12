@@ -1,1 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int main()
+{	char c[80];
+	int n, n1, n2;
+	printf("Enter:");
+	scanf("%s", &c);
+	struct tm *local, *gm, j;
+	time_t t;
+	if (strcmp(c, "now")==0)
+	{
+		t = time(NULL);
+		local = localtime(&t);
+		printf("Local time and date: %s", asctime(local));
+		gm = gmtime(&t);
+		printf("Greenwich mean time and date: %s", asctime(gm));
+		
+	}
+	if (strcmp(c, "week")==0)
+	{	printf("Enter year:");
+		scanf("%d", &n);
+		printf("Enter month:");
+		scanf("%d", &n1);
+		printf("Enter day:");
+		scanf("%d", &n2);
+		j.tm_yday=n;
+		j.tm_mon=n1;
+		j.tm_mday=n2;
+		mktime(&j);
+		printf("The day of the week is %d", j.tm_wday);
+	}
+	return 0;
+}
