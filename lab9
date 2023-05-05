@@ -15,7 +15,7 @@ int main()
 	double result;
 	result=0;
 	printf("Enter an example: \n");
-	gets(prim);
+	fgets(prim, 90, stdin);
 	res = strtok(prim,prob);
 	while (res!=NULL)
 	{
@@ -32,11 +32,11 @@ int main()
         {
             if (flag == 1)
             {
-                result += atof(res);
+                result += atof((double*)res);
             }
             if (flag == 2)
             {
-                result -= atof(res);
+                result -= atof((double*)res);
             }
         }
         res = strtok(NULL, prob);
