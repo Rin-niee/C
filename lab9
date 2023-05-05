@@ -32,11 +32,11 @@ int main()
         {
             if (flag == 1)
             {
-                result += atof((double*)res);
+                result += atof(res);
             }
             if (flag == 2)
             {
-                result -= atof((double*)res);
+                result -= atof(res);
             }
         }
         res = strtok(NULL, prob);
