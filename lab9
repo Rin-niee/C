@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-int is_digit(char c) 
-{ 
-return isdigit(c)==1; 
-}
+#include <ctype.h>
 
 int main() 
 { 	char prim[90];
@@ -18,8 +14,8 @@ int main()
 	fgets(prim, 90, stdin);
 	res = strtok(prim,prob);
 	while (res!=NULL)
-	{
-		flag =0;
+	{ 
+	printf ("%s\n",res);
 		if (strcmp(res, "+") == 0)
 		{
 			flag = 1;
@@ -28,11 +24,12 @@ int main()
 		{
 			flag = 2;
 		}
-		else if (isdigit(res[0]))
+		else if (isdigit(*res))
         {
             if (flag == 1)
             {
                 result += atof(res);
+                
             }
             if (flag == 2)
             {
@@ -42,5 +39,6 @@ int main()
         res = strtok(NULL, prob);
     }
     printf("Result is: %lf", result);
+    free(res);
     return 0; 
 }
