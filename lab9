@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
+//  -123.5 + 4 - 456+56
 int main() 
 { 	char prim[90];
 	char prob[10]=" ";
+	char min[10]="-";
+	char plus[10]="+";
 	char *res;
 	int flag;
 	double result;
@@ -15,7 +17,6 @@ int main()
 	res = strtok(prim,prob);
 	while (res!=NULL)
 	{ 
-	printf ("%s\n",res);
 		if (strcmp(res, "+") == 0)
 		{
 			flag = 1;
@@ -24,7 +25,7 @@ int main()
 		{
 			flag = 2;
 		}
-		else if (isdigit(*res))
+		if (isdigit(*res))
         {
             if (flag == 1)
             {
@@ -36,9 +37,29 @@ int main()
                 result -= atof(res);
             }
         }
+        if (!isdigit(*res) && (strcmp(res, "+")!=0) && (strcmp(res, "-")!=0))
+        {
+        	res = strtok(prim,min);
+        	while(res!=NULL)
+        	{	
+        	if (isdigit(*res))
+        	{
+        		printf("%s", res);
+			}
+        	res = strtok(prim, min);
+        	}
+        	res = strtok(prim,plus);
+        	while(res!=NULL)
+        	{	
+        	if (isdigit(*res))
+        	{
+        		result += atof(res);
+			}
+        	res = strtok(prim, plus);
+        	}
+        }
         res = strtok(NULL, prob);
     }
-    printf("Result is: %lf", result);
-    free(res);
+    printf("Result is: %.2f", result);
     return 0; 
 }
