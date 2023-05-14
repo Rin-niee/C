@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{	char c[80];
+	int n, n1, n2, n3, d, d1, mass[d1][7], m, k, i;
+	printf("Enter desired condition:");
+	scanf("%s", &c);
+	struct tm *local, *gm;
+	time_t t;
+	struct tm j;
+	if (strcmp(c, "now")==0)
+	{
+		t = time(NULL);
+		local = localtime(&t);
+		printf("Local time and date: %s", asctime(local));
+		gm = gmtime(&t);
+		printf("Greenwich mean time and date: %s", asctime(gm));
+		
+	}
+	if (strcmp(c, "weekday")==0)
+	{	
+		printf("enter date:");
+		scanf("%d.%d.%d", &n, &n1, &n2);
+		j.tm_year=n-1900;
+		j.tm_mon=n1;
+		j.tm_mday=n2;
+		mktime(&j);
+		printf("The day of week is: %d", j.tm_wday);
+	}
+	if (strcmp(c, "month")==0)
+	{
+		printf("Enter age and month:\n");
+		scanf("%d.%d", &n, &n1);
+		j.tm_year=n-1900;
+		j.tm_mon=n1;
+		j.tm_mday=n2;
+		n2=1;
+		mktime(&j);
+		n3=(int)(j.tm_wday);
+		if ((n1==2 || n1==02) && (n1%4==0))
+		{
+			d = 29;
+		}
+		if ((n1==2 || n1==02) && (n1%4!=0))
+		{
+			d = 28;
+		} 
+		if ((n1%2!=0))
+		{
+			d=31;
+		}
+		if (n1%2==0 && (n1!=2 || n1!=02))
+		{
+			d=30;
+		}
+		d1=(int)(d/7+1);
+		//printf("%d\n", d1);
+		printf("Sun Mon Tus Wen Thus Fri Sat\n");
+		m=-1;
+		for (i =0; i<=d1; i++)
+		{
+			for (k =0; k<7; k++)
+			{ 	
+			if (i ==0 && k<n3)
+			{ 
+				mass[i][k]=(NULL);
+			}
+			else
+			{
+			mass[i][k]=m;
+				m=m+1;
+				if (m=>d)
+				m=0;
+				mass[i][k]=m+1;
+			}
+			}
+		}
+		for (i =0; i<=d1; i++)
+		{
+			for (k =0; k<7; k++)
+			{	if(mass[i][k]<10)
+				{
+					printf("%d   ", mass[i][k]);
+				}
+				else 
+				{
+					printf("%d  ", mass[i][k]);
+				}
+			}
+			printf("\n");
+		}			
+	}
+	if (strcmp(c, "year")==0)
+	{
+		printf("Enter year:\n");
+		scanf("%d", &n, );
+		j.tm_year=n-1900;
+		j.tm_mon=n1;
+		n1=1;
+		j.tm_mday=n2;
+		n2=1;
+		mktime(&j);
+		printf("%d\n", j.tm_wday);
+		n3=(int)(j.tm_wday);
+		printf("Sun Mon Tus Wen Thus Fri Sat\n");
+		for(n1=1; n1<12; n++)
+		{
+		if ((n1==2 || n1==02) && (n1%4==0))
+		{
+			d = 29;
+		}
+		if ((n1==2 || n1==02) && (n1%4!=0))
+		{
+			d = 28;
+		} 
+		if ((n1%2!=0))
+		{
+			d=31;
+		}
+		if (n1%2==0 && (n1!=2 || n1!=02))
+		{
+			d=30;
+		}
+		d1=365/7;
+		//printf("%d\n", d1);
+		m=-1;
+		for (i =0; i<=d1; i++)
+		{
+			for (k =0; k<7; k++)
+			{ 	
+			if (i ==0 && k<n3)
+			{ 
+				mass[i][k]=(NULL);
+			}
+			else
+			{
+			mass[i][k]=m;
+				m=m+1;
+				if (m=>d)
+				m=0;
+				mass[i][k]=m+1;
+			}
+			}
+		}
+		for (i =0; i<=d1; i++)
+		{
+			for (k =0; k<7; k++)
+			{	if(mass[i][k]<10)
+				{
+					printf("%d   ", mass[i][k]);
+				}
+				else 
+				{
+					printf("%d  ", mass[i][k]);
+				}
+			}
+			printf("\n");
+		}			
+	}
+		}
+return 0;
+}
