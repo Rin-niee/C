@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void printDigits(int n) {
+if (n < 10) {
+printf("%d ", n);
+return;
+}
+printDigits(n / 10);
+printf("%d ", n % 10);
+}
+
+int main() {
+int n;
+scanf("%d", &n);
+printDigits(n);
+printf("\n");
+while (n > 0) {
+printf("%d ", n % 10);
+n /= 10;
+}
+printf("\n");
+return 0;
+}
