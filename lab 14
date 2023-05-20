@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <setjmp.h>
+
+jmp_buf env;
+
+int fib(int n, int* sum) {
+int f;
+
+if (n == 0 || n == 1) {
+    return 1;
+}
+
+int x = setjmp(env);
+
+if (x == 0) {
+    f = fib(n-1, sum);
+    longjmp(env, 1);
+}
+
+*sum += f;
+return f + fib(n-2, sum);
+}
+
+int main() {
+int sum = 0;
+int n = 10;
+
+printf("Sum of first %d Fibonacci numbers: %d\n", n, fib(n, &sum));
+
+printf("Sum is: %d\n", sum);
+
+return 0;
+}
