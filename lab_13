@@ -1,1 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
 
+void handle_signal(int sig) {
+    switch(sig) {
+        case SIGABRT:
+            printf("Received signal SIGABRT\n");
+            break;
+        case SIGFPE:
+            printf("Received signal SIGFPE\n");
+            break;
+        case SIGILL:
+            printf("Received signal SIGILL\n");
+            break;
+        case SIGINT:
+            printf("Received signal SIGINT\n");
+            break;
+        case SIGSEGV:
+            printf("Received signal SIGSEGV\n");
+            break;
+        case SIGTERM:
+            printf("Received signal SIGTERM\n");
+            break;
+        default:
+            printf("Received unrecognized signal\n");
+            break;
+    }
+}
+
+int main() {
+    // Установка обработчика для каждого сигнала
+    signal(SIGABRT, handle_signal);
+    signal(SIGFPE, handle_signal);
+    signal(SIGILL, handle_signal);
+    signal(SIGINT, handle_signal);
+    signal(SIGSEGV, handle_signal);
+    signal(SIGTERM, handle_signal);
+
+    int choice;
+    while(1) {
+        printf("Enter a signal number to raise (or 0 to exit):\n");
+        scanf("%d", &choice);
+        if(choice == 0) {
+            printf("Exiting...\n");
+            exit(0);
+        }
+        else {
+            // Генерация выбранного сигнала
+            raise(choice);
+        }
+    }
+    return 0;
+}
