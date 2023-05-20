@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main() {
+    long num_long;
+    double num_double;
+    int count_long = 0, count_double = 0;
+
+    printf("Введите целое число типа long: ");
+    scanf("%ld", &num_long);
+
+    printf("Введите число типа double: ");
+    scanf("%lf", &num_double);
+
+    // подсчет битов в числе типа long
+    for (int i = 0; i < sizeof(num_long) * 8; i++) {
+        if (num_long & 1) {
+            count_long++;
+        }
+        num_long >>= 1;
+    }
+
+    // подсчет битов в числе типа double
+    unsigned char *p = (unsigned char *) &num_double;
+    for (int i = 0; i < sizeof(num_double); i++) {
+        for (int j = 0; j < 8; j++) {
+            if (*p & (1 << j)) {
+                count_double++;
+            }
+        }
+        p++;
+    }
+
+    printf("Количество битов, выставленных в единицу в числе типа long: %d\n", count_long);
+    printf("Количество битов, выставленных в единицу в числе типа double: %d\n", count_double);
+
+    return 0;
+}
