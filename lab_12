@@ -1,121 +1,108 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <locale.h>
 
-int main()
-{	char c[80];
-	int n, n1, n2, d, y, i, year1[11], k;
-	printf("enter desired condition:");
-	scanf("%s", &c);
-	struct tm *local, *gm;
+/* ЗАДАНИЕ 12
+Написать программу-календарь. Пользователь может указать даты в формате:
+	- гггг.мм.дд - программа вычисляет день недели соответствующий данной дате;
+	- гггг.мм - программа выводит календарь за данный месяц;
+	- гггг - календарь за год;
+	- now - текущую дату.
+*/
+int split(char str[], char **arr){
+    char* token = strtok(str, ".");
+    arr[0] = token;
+    int i=0;
+
+    while (token != NULL) {
+        //printf(" % s\n", token);
+        arr[i] = token; i++;
+        token = strtok(NULL, ".");
+    }
+    return i;
+}
+
+int main() {
+	setlocale(LC_ALL, "");
+	char s[80];
+	char *f;
 	time_t t;
-	struct tm j;
-	if (strcmp(c, "now")==0)
-	{
-		t = time(NULL);
-		local = localtime(&t);
-		printf("Local time and date: %s", asctime(local));
-		gm = gmtime(&t);
-		printf("Greenwich mean time and date: %s", asctime(gm));
-		
-	}
-	if (strcmp(c, "weekday")==0)
-	{	
-		printf("enter date:");
-		scanf("%d.%d.%d", &n, &n1, &n2);
-		j.tm_year=n-1900;
-		j.tm_mon=n1;
-		j.tm_mday=n2;
-		mktime(&j);
-		printf("The day of week is: %d", j.tm_wday);
-	}
-	if (strcmp(c, "month")==0)
-	{
-		printf("Enter age and month:\n");
-		scanf("%d.%d", &n, &n1);
-		if ((n1==2 || n1==02) && (n1%4==0))
-		{
-			d = 29;
-		}
-		if ((n1==2 || n1==02) && (n1%4!=0))
-		{
-			d = 28;
-		} 
-		if ((n1%2!=0))
-		{
-			d=31;
-		}
-		if (n1%2==0 && (n1!=2 || n1!=02))
-		{
-			d=30;
-		}
-		printf("Sun Mon Tus Wen Thus Fri Sat\n");
-		for (i=1; i<=d; i++)
-		{	if (i<10)
-			{
-				printf("  %d ", i);
-				if (i%7==0)
-				{
-					printf("\n");
+	struct tm *ltime = malloc(sizeof(struct tm));
+	struct tm ttime;
+	printf("Введите запрос: ");
+	gets(s);
+	char *sarr[5];
+	switch (strlen(s)){
+		case 10: // если введена полная дата
+			if(s[4]=='.' && s[7]=='.'){
+				split(s,sarr);
+				ttime.tm_year = atoi(sarr[0])-1900;
+				ttime.tm_mon = atoi(sarr[1])-1;
+				ttime.tm_mday = atoi(sarr[2]);
+//				t = time(NULL);
+//				ltime=localtime(&t);
+			//	printf("Текущяя дата: %s", asctime(&ttime));
+			//	printf("Текущяя дата: %s", asctime(&ttime));
+				
+				//mktime(&ttime);
+				f = "%A";
+				strftime(s, 80, f, &ttime);
+				printf("Текущяя дата: %s", asctime(&ttime));
+				printf("День недели: %s", s);
+			} else printf("Неизвестный запрос!\n");
+			break;
+		case 7: // если введены только год и месяц
+			if(s[4]=='.'){
+				split(s,sarr);
+				ttime.tm_year = atoi(sarr[0])-1900;
+				ttime.tm_mon = atoi(sarr[1])-1;
+				ttime.tm_mday = 1;
+				//mktime(&ttime);
+				struct tm ktime = ttime;
+				f = "%a | %d %b %Y";
+				while (ktime.tm_mon == ttime.tm_mon){
+					strftime(s, 80, f, &ktime);
+					printf("%s\n", s);
+					ktime.tm_mday = ktime.tm_mday + 1;
+					mktime(&ktime);
 				}
-			}
-			else 
-			{
-				printf(" %d ", i);
-				if (i%7==0)
-				{
-					printf("\n");
+			} else printf("Неизвестный запрос!\n");
+			break;
+		case 4: // если введен только год
+			split(s,sarr);
+			ttime.tm_year = atoi(sarr[0])-1900;
+			ttime.tm_mon = 0;
+			ttime.tm_mday = 1;
+			//mktime(&ttime);
+			struct tm ktime = ttime;
+			f = "%a | %d %b %Y";
+			while (ktime.tm_year == ttime.tm_year){
+				ttime = ktime;
+				while (ktime.tm_mon == ttime.tm_mon){
+					
+					strftime(s, 80, f, &ktime);
+					printf("%s\n", s);
+					ktime.tm_mday = ktime.tm_mday + 1;
+					mktime(&ktime);
 				}
+				ktime.tm_mday = 1;
+				ktime.tm_mon++;
+				mktime(&ktime);
 			}
-		}
+			break;
+		case 3: // если введен now
+			if (strcmp(s,"now")==0){
+				t = time(NULL);
+				ltime = localtime(&t);
+				char f[10] = "%d %B %Y";
+				strftime(s, 80, f, ltime);
+				printf("Текущяя дата: %s", s);
+			} else {
+				printf("Неизвестный запрос!\n");
+			}
+			break;
 	}
-	if (strcmp(c, "year")==0)
-	{
-		printf("Enter year:\n");
-		scanf("%d", &n);
-		for (i=0; i<=11; i++)
-		{	
-			printf("\nSun Mon Tus Wen Thus Fri Sat\n");
-			if (i==0)
-			{
-				year1[i]=31;
-			}
-			if (i==1 && n%4==0)
-			{
-				year1[i]=29;
-			}
-			if (i==1 && n%4!=0)
-			{
-				year1[i]=28;
-			}
-			if (i%2!=0 && i!=1)
-			{
-				year1[i]=30;
-			}
-			if (i%2==0)
-			{
-				year1[i]=31;
-			}
-			for (k=1; k<=year1[i]; k++)
-			{
-				if (k<10)
-				{
-					printf("  %d ", k);
-					if (k%7==0)
-					{
-						printf("\n");
-					}
-				}
-				else 
-				{
-					printf(" %d ", k);
-					if (k%7==0)
-					{
-						printf("\n");
-					}
-				}
-			}
-		}
-	}
-return 0;
+	
 }
