@@ -30,3 +30,27 @@ void handler_signal(int signal)
         
     }
 }
+int main()
+{   signal(SIGABRT, handler_signal);
+    signal(SIGFPE, handler_signal);
+    signal(SIGILL, handler_signal);
+    signal(SIGINT, handler_signal);
+    signal(SIGSEGV, handler_signal);
+    signal(SIGTERM, handler_signal);
+    char f;
+    printf("Enter number of signal or exit to break cycle");
+    scanf("%s", &f);
+    while(1)
+    {
+        if (f=="exit")
+        {
+            break;
+        }
+        else
+        {
+            f1=atoi(f);
+            raise(f);
+        }
+    }
+    return 0;
+}
