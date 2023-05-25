@@ -4,12 +4,14 @@
 
 int main()
 {	char c[80];
-	int n, n1, n2, n3, d, d1, mass[d1][7], m, k, i, o;
+	int n, n1, n2, n3;
+	char s[20];
 	printf("Enter desired condition:");
 	scanf("%s", &c);
 	struct tm *local, *gm;
 	time_t t;
 	struct tm j;
+	char f;
 	if (strcmp(c, "now")==0)
 	{
 		t = time(NULL);
@@ -35,237 +37,43 @@ int main()
 		scanf("%d.%d", &n, &n1);
 		j.tm_year=n-1900;
 		j.tm_mon=n1;
-		j.tm_mday=n2;
-		n2=1;
+		j.tm_mday=1;
 		mktime(&j);
-		n3=(int)(j.tm_wday);
-		if ((n1==2 || n1==02) && (n1%4==0))
+		sprintf(s "%d.%d", n, n1);
+		struct tm rtime=j;
+		f = "%a | %d %b %Y";
+		while (rtime.tm_mon== j.tm_mon)
 		{
-			d = 29;
+			strftime(s, 80, f, rtime);
+			printf("%s\n",);
+			rtime.tm_mday=rtime.tm_mday+1;
+			mktime(&rtime);
 		}
-		if ((n1==2 || n1==02) && (n1%4!=0))
-		{
-			d = 28;
-		} 
-		if ((n1%2!=0) && (n1==8 ))
-		{
-			d=31;
-		}
-		if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-		{
-			d=30;
-		}
-		d1=(int)(d/7+1);
-		//printf("%d\n", d1);
-		printf("Sun Mon Tus Wen Thus Fri Sat\n");
-		m=-1;
-		o=-1;
-		for (i =0; i<=d1; i++)
-		{
-			for (k =0; k<7; k++)
-			{ 	
-			if (i ==0 && k<n3)
-			{ 
-				mass[0][n3]=1;
-				if (n1!=1)
-				{
-					n1=n1-1;
-					if ((n1==2 || n1==02) && (n1%4==0))
-					{
-						d = 29;
-					}
-					if ((n1==2 || n1==02) && (n1%4!=0))
-					{
-						d = 28;
-					} 
-					if ((n1%2!=0) && (n1==8 ))
-					{
-						d=31;
-					}
-					if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-					{
-						d=30;
-					}
-					o=o+1;
-					mass[i][k]=d-o;
-				}
-				else if (n1==1)
-				{
-					n1=12-1;
-					if ((n1==2 || n1==02) && (n1%4==0))
-					{
-						d = 29;
-					}
-					if ((n1==2 || n1==02) && (n1%4!=0))
-					{
-						d = 28;
-					} 
-					if ((n1%2!=0) && (n1==8 ))
-					{
-						d=31;
-					}
-					if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-					{
-						d=30;
-					}
-					o=o+1;
-					mass[i][k]=d-o;
-				}
-			}
-			else if (i !=0 && k>=n3)
-			{
-			mass[i][k]=m;
-				m=m+1;
-				if (m>=d)
-				m=0;
-				n1=n1+1;
-				if ((n1==2 || n1==02) && (n1%4==0))
-				{
-					d = 29;
-				}
-				if ((n1==2 || n1==02) && (n1%4!=0))
-				{
-					d = 28;
-				} 
-				if ((n1%2!=0) && (n1==8 ))
-				{
-					d=31;
-				}
-				if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-				{
-					d=30;
-				}
-				mass[i][k]=m+1;
-			}
-			}
-		}
-		for (i =0; i<=d1; i++)
-		{
-			for (k =0; k<7; k++)
-			{	if(mass[i][k]<10)
-				{
-					printf("%d   ", mass[i][k]);
-				}
-				else 
-				{
-					printf("%d  ", mass[i][k]);
-				}
-			}
-			printf("\n");
-		}			
 	}
 	if (strcmp(c, "year")==0)
 	{
 		printf("Enter year:\n");
 		scanf("%d", &n);
 		j.tm_year=n-1900;
-		j.tm_mon=n1;
-		n1=1;
-		j.tm_mday=n2;
-		n2=1;
+		j.tm_mon=0;
+		j.tm_mday=01;
 		mktime(&j);
-		printf("%d\n", j.tm_wday);
-		n3=(int)(j.tm_wday);
-		printf("Sun Mon Tus Wen Thus Fri Sat\n");
-		for(n1=1; n1<12; n++)
+		sprintf(s "%d", n);
+		struct tmrtime = j;
+		f = "%a | %d %b %Y";
+		while (rtime.tm_year == j.tm_year)
 		{
-		if ((n1==2 || n1==02) && (n1%4==0))
-		{
-			d = 29;
-		}
-		if ((n1==2 || n1==02) && (n1%4!=0))
-		{
-			d = 28;
-		} 
-		if ((n1%2!=0))
-		{
-			d=31;
-		}
-		if (n1%2==0 && (n1!=2 || n1!=02))
-		{
-			d=30;
-		}
-		d1=365/7;
-		//printf("%d\n", d1);
-		m=-1;
-		o=-1;
-		for (i =0; i<=d1; i++)
-		{
-			for (k =0; k<7; k++)
-			{ 	
-			if (i ==0 && k<n3)
-			{	
-				mass[0][n3]=1;
-				if (n1!=1)
-				{
-					n1=n1-1;
-					if ((n1==2 || n1==02) && (n1%4==0))
-					{
-						d = 29;
-					}
-					if ((n1==2 || n1==02) && (n1%4!=0))
-					{
-						d = 28;
-					} 
-					if ((n1%2!=0) && (n1==8 ))
-					{
-						d=31;
-					}
-					if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-					{
-						d=30;
-					}
-					o=o+1;
-					mass[i][k]=d-o;
-				}
-				else if (n1==1)
-				{
-					n1=12-1;
-					if ((n1==2 || n1==02) && (n1%4==0))
-					{
-						d = 29;
-					}
-					if ((n1==2 || n1==02) && (n1%4!=0))
-					{
-						d = 28;
-					} 
-					if ((n1%2!=0) && (n1==8 ))
-					{
-						d=31;
-					}
-					if (n1%2==0 && (n1!=2 || n1!=02) && (n1!=07 ||n1!=07 ))
-					{
-						d=30;
-					}
-					o=o+1;
-					mass[i][k]=d-o;
-				}
-			}
-			else
+			j = rtime;
+			while (rtime.tm_mon == j.tm_mon)
 			{
-			mass[i][k]=m;
-				m=m+1;
-				if (m>=d)
-				m=0;
-				mass[i][k]=m+1;
-			}
-			}
-		}
-		for (i =0; i<=d1; i++)
-		{
-			for (k =0; k<7; k++)
-			{	if(mass[i][k]<10)
-				{
-					printf("%d   ", mass[i][k]);
+					strftime(s, 80, f, &rtime);
+					printf("%s\n", s);
+					rtime.tm_mday = rtime.tm_mday + 1;
+					mktime(&rtime);
 				}
-				else 
-				{
-					printf("%d  ", mass[i][k]);
-				}
+				rtime.tm_mday = 1;
+				rtime.tm_mon=rtime.tm_mon+1;
+				mktime(&rtime);
 			}
-			printf("\n");
-		}			
-	}
-		}
 return 0;
 }
