@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <setjmp.h>
 
-jmp_buf env;
 
-int fib(int n, int* sum) {
-int f;
 
-if (n == 0 || n == 1) {
-    return 1;
-}
+int counter(int n, int sum) 
+{   
+    jmp_buf en{0};
+    int chis,i;
+    if (n == 0 || n == 1) 
+    {
+        return 1;
+    }
+    i = setjmp(env);
+    if (i == 0) 
+    {
+        f = counter(n-1, sum);
+        longjmp(env, 1);
+    }
 
-int x = setjmp(env);
-
-if (x == 0) {
-    f = fib(n-1, sum);
-    longjmp(env, 1);
-}
-
-*sum += f;
-return f + fib(n-2, sum);
+    sum += chis;
+    return chis + counter(n-2, sum);
 }
 
 int main() {
