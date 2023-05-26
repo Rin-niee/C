@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double sum( n, ...)
+double sum(int n, ...)
 {
 	double res;
 	res=0;
@@ -68,5 +68,5 @@ double sum( n, ...)
 		res+= va_arg(list, double);
 	}
 	va_end(list);
-	return res/n;
+	return res;
 }
