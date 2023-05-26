@@ -1,34 +1,41 @@
 #include <stdio.h>
 #include <setjmp.h>
 
+jmp_buf env;
 
-
-int counter(int n, int sum) 
-{   
-    jmp_buf en{0};
-    int chis,i;
+int counter(int n) 
+{
     if (n == 0 || n == 1) 
     {
         return 1;
     }
-    i = setjmp(env);
-    if (i == 0) 
+    else
     {
-        f = counter(n-1, sum);
+    return counter(n-1)+counter(n-2);
+    }
+}
+int sumF(int n, int sum)
+{
+    if (n<=0)
+    {
         longjmp(env, 1);
     }
-
-    sum += chis;
-    return chis + counter(n-2, sum);
+    else
+    {
+        sum+=counter(n);
+        sumF(n-1; sum);
+    }
+    
 }
-
-int main() {
-int sum = 0;
-int n = 10;
-
-printf("Sum of first %d Fibonacci numbers: %d\n", n, fib(n, &sum));
-
-printf("Sum is: %d\n", sum);
-
+int main() 
+{
+int sum, n, i;
+sum=0;
+printf("Enter number:\n");
+scanf(&n);
+for(i=0; i<=n; i++)
+{
+    sum += sumF(n, sum);
+}
 return 0;
 }
