@@ -5,11 +5,11 @@
 jmp_buf env;
 
 int counter(int n) 
-{   int x;
+{ 
     if (n == 0 || n == 1) 
     {
 		return 1;
-		x=setjmp(env);
+		longjmp(env, 1);
     }
     else
     {
@@ -21,7 +21,7 @@ int sumF(int n, int sum)
 {
     if (n<=0)
     {
-        longjmp(env, 1);
+        n = setjmp(env);
     }
     else
     {
