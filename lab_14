@@ -1,21 +1,22 @@
 #include <stdio.h>
 #include <setjmp.h>
+#include <stdlib.h>
 
 jmp_buf env;
 
 int counter(int n) 
-{   
-    int x;
+{   int x;
     if (n == 0 || n == 1) 
     {
-        return 1;
+		return 1;
+		x=setjmp(env);
     }
     else
     {
-    return counter(n-1)+counter(n-2);
-    }
-  x=setjmp(env);   
+    	return counter(n-1)+counter(n-2);
+    }  
 }
+
 int sumF(int n, int sum)
 {
     if (n<=0)
@@ -25,19 +26,20 @@ int sumF(int n, int sum)
     else
     {
         sum+=counter(n);
-        sumF(n-1; sum);
+        sumF(n-1, sum);
     }
     
 }
 int main() 
 {
-int sum, n, i;
-sum=0;
-printf("Enter number:\n");
-scanf(&n);
-for(i=0; i<=n; i++)
-{
-    sum += sumF(n, sum);
-}
-return 0;
+	int sum, n, i;
+	sum=0;
+	printf("Enter number:\n");
+	scanf("%d", &n);
+	for(i=0; i<=n; i++)
+	{
+	    sum += sumF(i, sum);
+	}
+	printf("Sum is %d", sum);
+	return 0;
 }
