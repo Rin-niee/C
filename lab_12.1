@@ -4,14 +4,15 @@
 
 int main()
 {	char c[80];
+	char *f;
 	int n, n1, n2, n3;
-	char s[20];
+	char *s;
+	s = (char*)malloc(40*sizeof(char));
 	printf("Enter desired condition:");
 	scanf("%s", &c);
 	struct tm *local, *gm;
 	time_t t;
 	struct tm j;
-	char f;
 	if (strcmp(c, "now")==0)
 	{
 		t = time(NULL);
@@ -23,7 +24,7 @@ int main()
 	}
 	if (strcmp(c, "weekday")==0)
 	{	
-		printf("enter date:");
+		printf("Enter date:");
 		scanf("%d.%d.%d", &n, &n1, &n2);
 		j.tm_year=n-1900;
 		j.tm_mon=n1;
@@ -36,16 +37,15 @@ int main()
 		printf("Enter age and month:\n");
 		scanf("%d.%d", &n, &n1);
 		j.tm_year=n-1900;
-		j.tm_mon=n1;
+		j.tm_mon=n1-1;
 		j.tm_mday=1;
 		mktime(&j);
-		sprintf(s "%d.%d", n, n1);
 		struct tm rtime=j;
-		f = "%a | %d %b %Y";
-		while (rtime.tm_mon== j.tm_mon)
+		f = "%d %b %Y";
+		while (rtime.tm_mon == j.tm_mon)
 		{
-			strftime(s, 80, f, rtime);
-			printf("%s\n",);
+			strftime(s, 40, f, &rtime);
+			printf("%s\n", s);
 			rtime.tm_mday=rtime.tm_mday+1;
 			mktime(&rtime);
 		}
@@ -56,24 +56,25 @@ int main()
 		scanf("%d", &n);
 		j.tm_year=n-1900;
 		j.tm_mon=0;
-		j.tm_mday=01;
+		j.tm_mday=1;
 		mktime(&j);
-		sprintf(s "%d", n);
-		struct tmrtime = j;
-		f = "%a | %d %b %Y";
+		sprintf(s, "%d", n);
+		struct tm rtime = j;
+		f = "%d %b %Y";
 		while (rtime.tm_year == j.tm_year)
 		{
 			j = rtime;
 			while (rtime.tm_mon == j.tm_mon)
 			{
-					strftime(s, 80, f, &rtime);
+					strftime(s, 40, f, &rtime);
 					printf("%s\n", s);
 					rtime.tm_mday = rtime.tm_mday + 1;
 					mktime(&rtime);
-				}
+			}
 				rtime.tm_mday = 1;
 				rtime.tm_mon=rtime.tm_mon+1;
 				mktime(&rtime);
-			}
+		}
+	}
 return 0;
 }
