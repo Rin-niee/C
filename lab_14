@@ -4,42 +4,33 @@
 
 jmp_buf env;
 
-int counter(int n) 
-{ 
-    if (n == 0 || n == 1) 
-    {
-		return 1;
-		longjmp(env, 1);
-    }
-    else
-    {
-    	return counter(n-1)+counter(n-2);
-    }  
+int Fib(int n, int* sum) 
+{
+	int f;
+	if (n == 0 || n == 1) 
+	{
+	    return 1;
+	}
+
+	int x = setjmp(env);
+
+	if (x == 0) 
+	{
+	    f = Fib(n-1, sum);
+	    longjmp(env, 1);
+	}
+
+	*sum += f;
+	return f + Fib(n-2, sum);
 }
 
-int sumF(int n, int sum)
-{
-    if (n<=0)
-    {
-        n = setjmp(env);
-    }
-    else
-    {
-        sum+=counter(n);
-        sumF(n-1, sum);
-    }
-    
-}
 int main() 
 {
-	int sum, n, i;
-	sum=0;
-	printf("Enter number:\n");
+	int sum;
+	sum = 0;
+	int n;
 	scanf("%d", &n);
-	for(i=0; i<=n; i++)
-	{
-	    sum += sumF(i, sum);
-	}
-	printf("Sum is %d", sum);
+	printf("Sum of first %d Fibonacci numbers: %d\n", n, Fib(n, &sum));
+	printf("Sum is: %d\n", sum);
 	return 0;
 }
