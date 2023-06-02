@@ -1,56 +1,92 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <signal.h>
+#include <stdlib.h>
 
-void handler_signal(int signal)
+void sig_handler(int sig) 
 {
-    switch(signal)
+    switch(sig) 
     {
         case SIGABRT:
-            printf("Signal ~SIGABRT~\n");
-            break;
+        printf("Received SIGABRT\n");
+        break;
         case SIGFPE:
-            printf("Signal ~SIGFPE~\n");
-            break;
+        printf("Received SIGFPE\n");
+        break;
         case SIGILL:
-            printf("Signal ~SIGILL~\n");
-            break;
+        printf("Received SIGILL\n");
+        break;
         case SIGINT:
-            printf("Signal ~SIGINT~\n");
-            break;
+        printf("Received SIGINT\n");
+        break;
         case SIGSEGV:
-            printf("Signal ~SIGSEGV~\n");
-            break;
+        printf("Received SIGSEGV\n");
+        break;
         case SIGTERM:
-            printf("Signal ~SIGTERM~\n");
-            break;
+        printf("Received SIGTERM\n");
+        break;
         default:
-            printf("unrecognized signal\n");
-            break;
-        
+        printf("Received unknown signal %d\n", sig);
+        break;
     }
 }
-int main()
-{   signal(SIGABRT, handler_signal);
-    signal(SIGFPE, handler_signal);
-    signal(SIGILL, handler_signal);
-    signal(SIGINT, handler_signal);
-    signal(SIGSEGV, handler_signal);
-    signal(SIGTERM, handler_signal);
-    char f;
-    printf("Enter number of signal or exit to break cycle");
-    scanf("%s", &f);
-    while(1)
+
+int main() 
+{
+    signal(SIGABRT, sig_handler);
+    signal(SIGFPE, sig_handler);
+    signal(SIGILL, sig_handler);
+    signal(SIGINT, sig_handler);
+    signal(SIGSEGV, sig_handler);
+    signal(SIGTERM, sig_handler);
+    printf("Waiting for signals...\n");
+    return 0;
+}
+
+void raise_signal(int sig) 
+{
+    printf("Raising signal %d...\n", sig);
+    raise(sig);
+}
+
+int main() 
+{
+    char input;
+
+    signal(SIGABRT, sig_handler);
+    signal(SIGFPE, sig_handler);
+    signal(SIGILL, sig_handler);
+    signal(SIGINT, sig_handler);
+    signal(SIGSEGV, sig_handler);
+    signal(SIGTERM, sig_handler);
+
+    printf("Press 1 to raise SIGABRT, 2 to raise SIGFPE, 3 to raise SIGILL,\n");
+    printf("4 to raise SIGINT, 5 to raise SIGSEGV, 6 to raise SIGTERM\n");
+    input = getchar();
+    int sig;
+    switch(input) 
     {
-        if (f=="exit")
-        {
+        case '1':
+            sig = SIGABRT;
             break;
-        }
-        else
-        {
-            f1=atoi(f);
-            raise(f);
-        }
+        case '2':
+            sig = SIGFPE;
+            break;
+        case '3':
+            sig = SIGILL;
+            break;
+        case '4':
+            sig = SIGINT;
+            break;
+        case '5':
+            sig = SIGSEGV;
+            break;
+        case '6':
+            sig = SIGTERM;
+            break;
+        default:
+            printf("Invalid input\n");
+            return 0;
     }
+    raise_signal(sig);
     return 0;
 }
