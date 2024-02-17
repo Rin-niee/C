@@ -16,7 +16,7 @@ int main()
 {	human humens[16];
 	human hus;
 	int i, j, h, k, n; 
-	char c[100]; //çàïèñü ñòðîêè, â êîòîðîé ïîñëå áóäåò ðàñïîëàãàòüñÿ îïðåäåëèòåëü;
+	char c[100];
 	char a[100];
 	char s[1000];
 	h=0;
