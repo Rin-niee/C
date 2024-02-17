@@ -1,11 +1,7 @@
-#include <iostream>
 #include <stdio.h>
-#include <math.h>
- 
-#include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
- 
+#include <math.h>
+
 int main()
 {
     double sum1=0,sum2=0;
